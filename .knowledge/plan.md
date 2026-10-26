@@ -16,6 +16,6 @@ Usage tally (work units; short = 1, long = 2): **Sonnet 23 (… + T5c, T6b, T6c 
 | T8 | Lootr Remastered check: confirm via its source and a dev-client run with the Lootr jar that eggs appear in Lootr chests; integrated-loot leakage behaviour | Sonnet | short/medium | T5 | T9 | done (tag shipped; runtime check in T10) |
 | T9 | Logo (SVG/pixel art from mod textures, no AI → PNG 400×400 + banner), CurseForge description.md, summary, README | Sonnet | short/easy | T1 | anything | done (T9b text refresh done) |
 | T10 | Pack integration: build jar, launch the pack client with the jar (lead), log/mixin check, in-game smoke checklist, pack config tweaks (adventurez), copy jar to mods\ | Lead | – | T6–T8 | – | done (headless; jar in pack mods/) |
-| T11 | Final: review, Graphify, report, push | Lead | – | all | – | done except push (repo creation needs owner OK) |
+| T11 | Final: review, Graphify, report, push | Lead | – | all | – | done (pushed, public) |
 | T9c | New logo/banner/icon in true pixel art (integer grid, no gradients/AA, hand-placed, no AI) — owner request | Opus | long/hard (visual quality) | – | T6c | done |
 | T6c | Run our gametests inside the full pack (headless scratch server) | Sonnet | long/medium | T6b | T9c | done |

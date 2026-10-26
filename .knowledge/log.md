@@ -31,3 +31,4 @@
 - T6c rerun (lead) | in full pack: 17/17 of ours pass (replenish tests made BEI-robust); only failure is Porting Lib's bundled Tests.test (foreign)
 - T11 final (lead) | report.md written; graph updated; everything committed; push pending owner approval
 - Repo cleanup (lead): description banner → GitHub raw URL, .gitignore for local Graphify files; branch renamed to mc/1.21.1 with path-scrubbed history; repo made public (owner approved)
+- Repo published (lead): mc/1.21.1 pushed (17+1 commits, username scrubbed from history), default branch set, port/fabric-1.21.1 deleted locally+remote, repo public with description/topics, GPL-3.0 detected, banner raw URL 200
