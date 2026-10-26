@@ -2,7 +2,7 @@
 Reference material: `.knowledge/ref/upstream-map.md` (file map and NeoForge→Fabric mapping), `ref/research-versions-compat.md` (versions and pack compatibility), `ref/loot_all.txt` (pack chest loot ids).
 Upstream clone: the session scratchpad `upstream/` (branch `neoforge`). If it is gone, re-clone it.
 
-Usage tally (work units; short = 1, long = 2): **Opus 0 / Sonnet 5 (R1, R2, T1)**. Target: Opus ≤ 50 %.
+Usage tally (work units; short = 1, long = 2): **Opus 0 / Sonnet 6 (R1, R2, T1, T9)**. Target: Opus ≤ 50 %.
 
 | ID | Task | Model | Size/Diff | Depends | Parallel with | Status |
 |---|---|---|---|---|---|---|
@@ -14,6 +14,6 @@ Usage tally (work units; short = 1, long = 2): **Opus 0 / Sonnet 5 (R1, R2, T1)*
 | T6 | Gametests (headless `runGametest`): breed registry, egg item/loot injection (chance forced), hatching, dragon tame/saddle/ride basics, replenish logic. Dev `runServer` smoke. DoD: all pass | Sonnet | long/easy | T5 | T7 | open |
 | T7 | Optional integrations: Jade plugin (egg breed/hatch stage, dragon breed/age), EMI egg stacks/info, Mod Menu metadata; Carry On/culling compat via data/tag where possible | Sonnet | short/easy | T5 | T6 | open |
 | T8 | Lootr Remastered check: confirm via its source and a dev-client run with the Lootr jar that eggs appear in Lootr chests; integrated-loot leakage behaviour | Sonnet | short/medium | T5 | T9 | open |
-| T9 | Logo (SVG/pixel art from mod textures, no AI → PNG 400×400 + banner), CurseForge description.md, summary, README | Sonnet | short/easy | T1 | anything | open |
+| T9 | Logo (SVG/pixel art from mod textures, no AI → PNG 400×400 + banner), CurseForge description.md, summary, README | Sonnet | short/easy | T1 | anything | done (text facts to refresh in T9b after T5) |
 | T10 | Pack integration: build jar, launch the pack client with the jar (lead), log/mixin check, in-game smoke checklist, pack config tweaks (adventurez), copy jar to mods\ | Lead | – | T6–T8 | – | open |
 | T11 | Final: review, Graphify, report, push | Lead | – | all | – | open |
