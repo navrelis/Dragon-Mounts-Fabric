@@ -1,11 +1,13 @@
 package com.github.kay9.dragonmounts.data;
 
 import com.github.kay9.dragonmounts.dragon.DragonBreed;
+import com.github.kay9.dragonmounts.DragonMountsLegacy;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
@@ -14,11 +16,12 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class CrossBreedingManager extends SimpleJsonResourceReloadListener
+public class CrossBreedingManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener
 {
     public static final CrossBreedingManager INSTANCE = new CrossBreedingManager();
     private static final String PATH = "dragonmounts/cross_breeding"; // data/[pack_name]/dragonmounts/cross_breeds/whatever.json
@@ -28,6 +31,12 @@ public class CrossBreedingManager extends SimpleJsonResourceReloadListener
     private CrossBreedingManager()
     {
         super(new GsonBuilder().create(), PATH);
+    }
+
+    @Override
+    public ResourceLocation getFabricId() // Fabric port
+    {
+        return DragonMountsLegacy.id("cross_breeding");
     }
 
     @Override

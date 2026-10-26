@@ -1,13 +1,12 @@
 package com.github.kay9.dragonmounts.dragon.abilities;
 
-import com.github.kay9.dragonmounts.DragonMountsLegacy;
+import com.github.kay9.dragonmounts.util.DMLUtil;
 import com.github.kay9.dragonmounts.dragon.TameableDragon;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
@@ -16,7 +15,7 @@ public class HotFeetAbility extends FootprintAbility implements Ability.Factory<
     public static final HotFeetAbility INSTANCE = new HotFeetAbility();
     public static final MapCodec<HotFeetAbility> CODEC = MapCodec.unit(INSTANCE);
 
-    public static final TagKey<Block> BURNABLES_TAG = BlockTags.create(DragonMountsLegacy.id("hot_feet_burnables"));
+    public static final TagKey<Block> BURNABLES_TAG = DMLUtil.blockTag("hot_feet_burnables");
 
     @Override
     protected void placeFootprint(TameableDragon dragon, BlockPos pos)

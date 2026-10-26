@@ -1,6 +1,6 @@
 package com.github.kay9.dragonmounts.dragon.abilities;
 
-import com.github.kay9.dragonmounts.DragonMountsLegacy;
+import com.github.kay9.dragonmounts.util.DMLUtil;
 import com.github.kay9.dragonmounts.dragon.TameableDragon;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -23,9 +23,9 @@ public class ReaperStepAbility extends FootprintAbility implements Ability.Facto
     public static final ReaperStepAbility INSTANCE = new ReaperStepAbility();
     public static final MapCodec<ReaperStepAbility> CODEC = MapCodec.unit(INSTANCE);
 
-    public static final TagKey<Block> PLANT_DEATH_TAG = BlockTags.create(DragonMountsLegacy.id("reaper_plant_death"));
-    public static final TagKey<Block> PLANT_DESTRUCTION_TAG = BlockTags.create(DragonMountsLegacy.id("reaper_plant_destruction"));
-    public static final TagKey<Block> REAPER_TRANSFORM = BlockTags.create(DragonMountsLegacy.id("reaper_transform"));
+    public static final TagKey<Block> PLANT_DEATH_TAG = DMLUtil.blockTag("reaper_plant_death");
+    public static final TagKey<Block> PLANT_DESTRUCTION_TAG = DMLUtil.blockTag("reaper_plant_destruction");
+    public static final TagKey<Block> REAPER_TRANSFORM = DMLUtil.blockTag("reaper_transform");
 
     @Override
     protected void placeFootprint(TameableDragon dragon, BlockPos pos)

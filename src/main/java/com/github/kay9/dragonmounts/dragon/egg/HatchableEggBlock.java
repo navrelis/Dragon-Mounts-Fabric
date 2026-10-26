@@ -3,18 +3,19 @@ package com.github.kay9.dragonmounts.dragon.egg;
 import com.github.kay9.dragonmounts.DMLConfig;
 import com.github.kay9.dragonmounts.DMLRegistry;
 import com.github.kay9.dragonmounts.dragon.DragonBreed;
+import com.github.kay9.dragonmounts.fabric.SidedAccess;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -47,9 +48,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -79,14 +78,13 @@ public class HatchableEggBlock extends DragonEggBlock implements EntityBlock, Si
         builder.add(HATCH_STAGE, HATCHING, WATERLOGGED);
     }
 
-    public static void populateTab(Consumer<ItemStack> registrar)
+    /**
+     * Fabric port: the registries are supplied by the caller (creative tab event), common code can't touch the client.
+     */
+    public static void populateTab(HolderLookup.Provider registries, Consumer<ItemStack> registrar)
     {
-        if (Minecraft.getInstance().level != null)
-        {
-            DragonBreed.registry(Minecraft.getInstance().level.registryAccess())
-                    .holders()
-                    .forEach(breed -> registrar.accept(Item.create(breed)));
-        }
+        registries.lookup(DragonBreed.REGISTRY_KEY)
+                .ifPresent(lookup -> lookup.listElements().forEach(breed -> registrar.accept(Item.create(breed))));
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -109,12 +107,12 @@ public class HatchableEggBlock extends DragonEggBlock implements EntityBlock, Si
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player)
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) // Fabric port: vanilla signature
     {
         if (level.getBlockEntity(pos) instanceof HatchableEggBlockEntity data)
             return Item.create(data.getBreedHolder());
 
-        return Item.create(DragonBreed.getRandom(level.registryAccess(), player.getRandom()));
+        return Item.create(DragonBreed.getRandom(level.registryAccess(), RandomSource.create()));
     }
 
     @Nullable
@@ -156,17 +154,19 @@ public class HatchableEggBlock extends DragonEggBlock implements EntityBlock, Si
             teleport(state, level, at); // retain original dragon egg teleport behavior
     }
 
-    @Override
-    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos at, Player player, boolean willHarvest, FluidState fluid)
+    /**
+     * Fabric port: replaces the NeoForge {@code onDestroyedByPlayer} override. Called from the
+     * {@code PlayerBlockBreakEvents.BEFORE} callback; {@code true} means the break must be vetoed.
+     * Non-creative players "breaking" a non-hatching {@code end} egg must not destroy it; the egg
+     * only teleports (see {@link #attack}).
+     */
+    public static boolean shouldPreventDestruction(BlockState state, Level level, BlockPos at, Player player)
     {
-        if (!player.getAbilities().instabuild
+        return !player.getAbilities().instabuild
                 && level.getBlockEntity(at) instanceof HatchableEggBlockEntity e
                 && e.hasBreed()
                 && e.getBreedHolder().unwrapKey().get().location().getPath().equals("end")
-                && !state.getValue(HATCHING))
-            return false; // retain original dragon egg teleport behavior; DON'T destroy!
-
-        return super.onDestroyedByPlayer(state, level, at, player, willHarvest, fluid);
+                && !state.getValue(HATCHING); // retain original dragon egg teleport behavior; DON'T destroy!
     }
 
     @Override
@@ -367,11 +367,14 @@ public class HatchableEggBlock extends DragonEggBlock implements EntityBlock, Si
 
             // ensure a breed exists for this egg. if not, assign a random one.
             // possible cause is through commands, or other unnatural means.
-            MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+            // Fabric port (upstream #259): the server may be null (client side); never dereference it.
+            RegistryAccess registries = SidedAccess.registryAccess();
+            if (registries == null) return;
+
             Holder<DragonBreed> breed = stack.get(DMLRegistry.DRAGON_BREED_COMPONENT.get());
-            if (breed == null && server != null)
-                setBreed(stack, DragonBreed.getRandom(server.registryAccess(), server.overworld().getRandom()));
-      }
+            if (breed == null)
+                setBreed(stack, DragonBreed.getRandom(registries, RandomSource.create()));
+        }
 
         private static void setBreed(ItemStack stack, Holder<DragonBreed> breed)
         {

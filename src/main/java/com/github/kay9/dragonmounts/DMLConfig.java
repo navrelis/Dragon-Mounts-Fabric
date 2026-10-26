@@ -1,11 +1,9 @@
 package com.github.kay9.dragonmounts;
 
-import com.github.kay9.dragonmounts.data.loot.DragonEggLootMod;
-import com.github.kay9.dragonmounts.dragon.DragonBreed;
+import com.github.kay9.dragonmounts.data.loot.DragonEggLootTargets;
 import com.github.kay9.dragonmounts.dragon.TameableDragon;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.storage.loot.LootTable;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.Map;
@@ -167,13 +165,13 @@ public class DMLConfig
     private static ImmutableMap<String, ModConfigSpec.DoubleValue> defineChanceEntries(ModConfigSpec.Builder configurator)
     {
         var chances = ImmutableMap.<String, ModConfigSpec.DoubleValue>builder();
-        for (var target : DragonEggLootMod.BUILT_IN_CHANCES)
+        for (var target : DragonEggLootTargets.BUILT_IN) // Fabric port: was DragonEggLootMod.BUILT_IN_CHANCES
         {
-            var path = formatEggTargetAsPath(target.forBreed(), target.target());
+            var path = target.configKey();
             var entry = configurator.comment(
-                            String.format("The chance that a %s egg appears in %s.", target.forBreed().location().getPath(), target.target().location().getPath()),
+                            String.format("The chance that a %s egg appears in %s.", target.breed().location().getPath(), target.table().getPath()),
                             "0 = Never Appears, 1 = Guaranteed")
-                    .defineInRange(path, target.chance(), 0, 1);
+                    .defineInRange(path, target.defaultChance(), 0, 1);
 
             chances.put(path, entry);
         }
@@ -191,13 +189,6 @@ public class DMLConfig
                     .defineInRange(path, TameableDragon.BASE_REPRO_LIMIT, -1, Integer.MAX_VALUE));
         }
         return lims.build();
-    }
-
-    public static String formatEggTargetAsPath(ResourceKey<DragonBreed> forBreed, ResourceKey<LootTable> forTarget)
-    {
-        return String.format("%s_in_%s_chance",
-                forBreed.location().getPath(),
-                forTarget.location().getPath().substring(forTarget.location().getPath().lastIndexOf('/') + 1));
     }
 
     private static void defineCameraOffsetEntries(ModConfigSpec.Builder configurator)

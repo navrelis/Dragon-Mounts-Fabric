@@ -1,8 +1,10 @@
 package com.github.kay9.dragonmounts.dragon;
 
 import com.github.kay9.dragonmounts.DMLRegistry;
-import net.minecraft.client.Minecraft;
+import com.github.kay9.dragonmounts.fabric.SidedAccess;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -10,26 +12,25 @@ import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.RegistryOps;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
-import net.neoforged.neoforge.server.ServerLifecycleHooks;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-public class DragonSpawnEgg extends DeferredSpawnEggItem
+public class DragonSpawnEgg extends SpawnEggItem
 {
     public DragonSpawnEgg()
     {
-        super(DMLRegistry.DRAGON, 0, 0, new Item.Properties());
+        super(DMLRegistry.DRAGON.get(), 0, 0, new Item.Properties()); // Fabric port: DRAGON is already registered (see DMLRegistry field order)
     }
 
     public static ItemStack create(Holder<DragonBreed> breed)
@@ -46,14 +47,17 @@ public class DragonSpawnEgg extends DeferredSpawnEggItem
 
         // ensure a breed exists for this egg. if not, assign a random one.
         // possible cause is through commands, or other unnatural means.
-        MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
-        RegistryOps<Tag> ops = server.registryAccess().createSerializationContext(NbtOps.INSTANCE);
+        // Fabric port (upstream #259): the server may be null (client side); never dereference it.
+        RegistryAccess registries = SidedAccess.registryAccess();
+        if (registries == null) return;
+
+        RegistryOps<Tag> ops = registries.createSerializationContext(NbtOps.INSTANCE);
         Holder<DragonBreed> breed = stack.getOrDefault(DataComponents.ENTITY_DATA, CustomData.EMPTY)
                 .read(ops, DragonBreed.CODEC.fieldOf(TameableDragon.NBT_BREED))
                 .result()
                 .orElse(null);
         if (breed == null)
-            setBreed(stack, DragonBreed.getRandom(server.registryAccess(), server.overworld().getRandom()));
+            setBreed(stack, DragonBreed.getRandom(registries, RandomSource.create()));
     }
 
     private static void setBreed(ItemStack stack, Holder<DragonBreed> breed)
@@ -93,13 +97,13 @@ public class DragonSpawnEgg extends DeferredSpawnEggItem
         return super.spawnOffspringFromSpawnEgg(pPlayer, pMob, pEntityType, server, pPos, stack);
     }
 
-    public static void populateTab(Consumer<ItemStack> registrar)
+    /**
+     * Fabric port: the registries are supplied by the caller (creative tab event), common code can't touch the client.
+     */
+    public static void populateTab(HolderLookup.Provider registries, Consumer<ItemStack> registrar)
     {
-        if (Minecraft.getInstance().level != null)
-        {
-            var reg = Minecraft.getInstance().level.registryAccess();
-            DragonBreed.registry(reg).holders().forEach(breed -> registrar.accept(create(breed)));
-        }
+        registries.lookup(DragonBreed.REGISTRY_KEY)
+                .ifPresent(lookup -> lookup.listElements().forEach(breed -> registrar.accept(create(breed))));
     }
 
     @SuppressWarnings("ConstantConditions") // ensured by item properties.

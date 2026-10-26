@@ -30,6 +30,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -56,19 +57,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
-import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.fluids.FluidType;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -521,7 +518,7 @@ public class TameableDragon extends TamableAnimal implements Saddleable, FlyingA
         }
 
         // give the saddle back!
-        if (isTamedFor(player) && isSaddled() && stack.is(Tags.Items.TOOLS_SHEAR))
+        if (isTamedFor(player) && isSaddled() && stack.is(ConventionalItemTags.SHEAR_TOOLS))
         {
             spawnAtLocation(Items.SADDLE);
             player.playSound(SoundEvents.SHEEP_SHEAR, 1f, 1f);
@@ -658,7 +655,7 @@ public class TameableDragon extends TamableAnimal implements Saddleable, FlyingA
         // override sound type if the top block is snowy
         var soundType = state.getSoundType();
         if (level().getBlockState(entityPos.above()).getBlock() == Blocks.SNOW)
-            soundType = Blocks.SNOW.getSoundType(state, level(), entityPos, this);
+            soundType = Blocks.SNOW.defaultBlockState().getSoundType(); // Fabric port: was Blocks.SNOW.getSoundType(state, level, pos, entity)
 
         // play stomping for bigger dragons
         playSound(getStepSound(), soundType.getVolume(), soundType.getPitch() * getVoicePitch());
@@ -689,10 +686,11 @@ public class TameableDragon extends TamableAnimal implements Saddleable, FlyingA
         return 2 - getAgeScale();
     }
 
+    @Nullable
     @Override
-    public ItemStack getPickedResult(HitResult target)
+    public ItemStack getPickResult() // Fabric port: was NeoForge's getPickedResult(HitResult)
     {
-        if (getBreed() == null) return ItemStack.EMPTY;
+        if (getBreed() == null) return null;
         return DragonSpawnEgg.create(getBreedHolder());
     }
 
@@ -767,8 +765,14 @@ public class TameableDragon extends TamableAnimal implements Saddleable, FlyingA
     @Override
     protected ResourceKey<LootTable> getDefaultLootTable()
     {
-        if (getBreed() == null) return BuiltInLootTables.EMPTY;
-        return getBreed().deathLoot();
+        if (isServer() && getBreed() != null)
+        {
+            // needs to use server's reloadable resources; loot tables aren't present on the normal registry
+            ResourceKey<LootTable> table = DragonBreed.getLootTableKey(getBreedHolder(), level().getServer().reloadableRegistries());
+            if (table != null) return table;
+        }
+
+        return super.getDefaultLootTable();
     }
 
     //todo what was this for?
@@ -1136,12 +1140,7 @@ public class TameableDragon extends TamableAnimal implements Saddleable, FlyingA
         return animator;
     }
 
-    @Override
-    public boolean canDrownInFluidType(FluidType type)
-    {
-        if (getBreed() == null) return super.canDrownInFluidType(type);
-        return !getBreed().immunities().contains(damageSources().drown().typeHolder());
-    }
+    // Fabric port: removed canDrownInFluidType (NeoForge only); drowning damage is already blocked by isInvulnerableTo.
 
     @Override
     public boolean fireImmune()

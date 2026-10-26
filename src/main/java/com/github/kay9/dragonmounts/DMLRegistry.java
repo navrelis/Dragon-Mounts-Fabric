@@ -1,6 +1,5 @@
 package com.github.kay9.dragonmounts;
 
-import com.github.kay9.dragonmounts.data.loot.DragonEggLootMod;
 import com.github.kay9.dragonmounts.data.loot.conditions.RandomChanceByConfig;
 import com.github.kay9.dragonmounts.dragon.DragonBreed;
 import com.github.kay9.dragonmounts.dragon.DragonSpawnEgg;
@@ -23,40 +22,41 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.function.Supplier;
 
 
+/**
+ * Fabric port: registration happens immediately (class initialization of this class performs it) instead of via
+ * NeoForge's DeferredRegister. Field order matters, since later entries depend on earlier ones.
+ * The custom registries (ability + habitat types) must exist before this class is initialized,
+ * see {@link com.github.kay9.dragonmounts.fabric.DMLCustomRegistries}.
+ */
 public class DMLRegistry
 {
-    protected static void init(IEventBus bus)
+    /**
+     * Forces class initialization, which registers everything.
+     */
+    public static void init()
     {
-        REGISTRIES.values().forEach(r -> r.register(bus));
-        REGISTRIES.clear(); // Registration happens once, no need to stick around.
+        DragonMountsLegacy.LOG.debug("Registered Dragon Mounts content");
     }
-
-    private static final Map<ResourceKey<? extends Registry<?>>, DeferredRegister<?>> REGISTRIES = new HashMap<>();
-
-    public static final Supplier<Block> EGG_BLOCK = register("dragon_egg", Registries.BLOCK, HatchableEggBlock::new);
-
-    public static final Supplier<Item> EGG_BLOCK_ITEM = register("dragon_egg", Registries.ITEM, HatchableEggBlock.Item::new);
-    public static final Supplier<Item> SPAWN_EGG = register("spawn_egg", Registries.ITEM, DragonSpawnEgg::new);
 
     public static final Supplier<SoundEvent> DRAGON_AMBIENT_SOUND = sound("entity.dragon.ambient");
     public static final Supplier<SoundEvent> DRAGON_STEP_SOUND = sound("entity.dragon.step");
     public static final Supplier<SoundEvent> DRAGON_DEATH_SOUND = sound("entity.dragon.death");
     public static final Supplier<SoundEvent> GHOST_DRAGON_AMBIENT = sound("entity.dragon.ambient.ghost");
 
+    public static final Supplier<Block> EGG_BLOCK = register("dragon_egg", Registries.BLOCK, HatchableEggBlock::new);
+
+    public static final Supplier<Item> EGG_BLOCK_ITEM = register("dragon_egg", Registries.ITEM, HatchableEggBlock.Item::new);
+
     public static final Supplier<EntityType<TameableDragon>> DRAGON = register("dragon", Registries.ENTITY_TYPE, () -> EntityType.Builder.of(TameableDragon::new, MobCategory.CREATURE).sized(TameableDragon.BASE_WIDTH, TameableDragon.BASE_HEIGHT).eyeHeight(3.375f).clientTrackingRange(10).updateInterval(3).build(DragonMountsLegacy.MOD_ID + ":dragon"));
 
-    public static final Supplier<BlockEntityType<HatchableEggBlockEntity>> EGG_BLOCK_ENTITY = register("dragon_egg", Registries.BLOCK_ENTITY_TYPE, () -> BlockEntityType.Builder.of(HatchableEggBlockEntity::new, EGG_BLOCK.get()).build(null));
+    // needs the entity type to be registered first
+    public static final Supplier<Item> SPAWN_EGG = register("spawn_egg", Registries.ITEM, DragonSpawnEgg::new);
 
-    public static final Supplier<MapCodec<DragonEggLootMod>> EGG_LOOT_MODIFIER = register("dragon_egg_loot", NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, () -> DragonEggLootMod.CODEC);
+    public static final Supplier<BlockEntityType<HatchableEggBlockEntity>> EGG_BLOCK_ENTITY = register("dragon_egg", Registries.BLOCK_ENTITY_TYPE, () -> BlockEntityType.Builder.of(HatchableEggBlockEntity::new, EGG_BLOCK.get()).build(null));
 
     public static final Supplier<LootItemConditionType> RANDOM_CHANCE_CONFIG_CONDITION = register("random_chance_by_config", Registries.LOOT_CONDITION_TYPE, () -> new LootItemConditionType(RandomChanceByConfig.CODEC));
 
@@ -96,12 +96,10 @@ public class DMLRegistry
     @SuppressWarnings("unchecked")
     private static <T, I extends T> Supplier<I> register(String name, ResourceKey<Registry<T>> forType, Supplier<I> sup)
     {
-        var registry = (DeferredRegister<T>) REGISTRIES.computeIfAbsent(forType, t ->
-        {
-            var fr = BuiltInRegistries.REGISTRY.get(forType.location());
-            if (fr == null) return DeferredRegister.create(forType, DragonMountsLegacy.MOD_ID);
-            return DeferredRegister.create(fr, DragonMountsLegacy.MOD_ID);
-        });
-        return registry.register(name, sup);
+        var registry = (Registry<T>) BuiltInRegistries.REGISTRY.get(forType.location());
+        if (registry == null)
+            throw new IllegalStateException("Registry " + forType.location() + " does not exist (yet). Custom registries must be created first.");
+        I obj = Registry.register(registry, DragonMountsLegacy.id(name), sup.get());
+        return () -> obj;
     }
 }

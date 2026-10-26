@@ -5,8 +5,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.ai.goal.BreedGoal;
 import net.minecraft.world.level.GameRules;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.entity.living.BabyEntitySpawnEvent;
 
 import java.util.List;
 
@@ -49,15 +47,7 @@ public class DragonBreedGoal extends BreedGoal
     @Override
     protected void breed()
     {
-        // Respect Mod compatibility
-        if (NeoForge.EVENT_BUS.post(new BabyEntitySpawnEvent(animal, partner, null)).isCanceled())
-        {
-            // Reset the "inLove" state for the animals
-            animal.setAge(6000);
-            partner.setAge(6000);
-            return;
-        }
-
+        // Fabric port: removed the BabyEntitySpawnEvent post (NeoForge mod-compat hook); no equivalent exists.
         animal.resetLove();
         partner.resetLove();
         dragon.spawnChildFromBreeding((ServerLevel) level, partner);
