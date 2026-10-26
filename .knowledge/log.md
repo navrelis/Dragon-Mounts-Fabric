@@ -21,3 +21,4 @@
 - T10a pack config | Sonnet | short | accepted: adventurez allow_dragon_hatching=false; entityculling entity+tick whitelist dragonmounts:dragon (uncommitted in pack repo)
 - T10 pack: jar copied to pack mods/; owner vetoed desktop control → headless harness server boot started; T5c kill() replenish wrap (Sonnet, short) and T6b remapped gametest jar (Sonnet, short) started
 - T5c kill() replenish wrap | Sonnet | short | accepted: second @WrapOperation on kill()V + gametest; 17/17 pass
+- T6b remapGametestJar task | Sonnet | short | accepted: build/libs/*-gametest.jar (intermediary), not part of build

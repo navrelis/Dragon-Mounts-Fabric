@@ -123,6 +123,28 @@ jar {
 	}
 }
 
+// Production (intermediary-remapped) game-test mod jar: build/libs/<name>-<version>-gametest.jar.
+// Not wired into build/assemble; run explicitly with `./gradlew remapGametestJar`. Drop it next to the real
+// mod in a production Fabric server and start with -Dfabric-api.gametest. It ships no access widener of its own,
+// the main mod's AW applies at runtime.
+tasks.register('gametestJar', Jar) {
+	group = 'build'
+	description = 'Assembles the (unremapped) game-test mod jar.'
+	archiveClassifier = 'gametest-dev'
+	destinationDirectory = layout.buildDirectory.dir('devlibs')
+	from sourceSets.gametest.output
+}
+
+tasks.register('remapGametestJar', net.fabricmc.loom.task.RemapJarTask) {
+	group = 'build'
+	description = 'Remaps the game-test mod jar to intermediary for use in a production server.'
+	dependsOn tasks.named('gametestJar')
+	inputFile = tasks.named('gametestJar', Jar).flatMap { it.archiveFile }
+	archiveClassifier = 'gametest'
+	destinationDirectory = layout.buildDirectory.dir('libs')
+	classpath.from(sourceSets.gametest.compileClasspath)
+}
+
 // configure the maven publication
 publishing {
 	publications {
