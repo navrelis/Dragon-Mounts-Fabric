@@ -1,644 +1,842 @@
 {
   "gametest/java/com/github/kay9/dragonmounts/gametest/DragonMountsGameTests.java": {
-    "mtime": 1793002058.4325008,
-    "seen": 1793002572.2696292,
-    "ast_hash": "39ee2e4587acdf090a5af3b2434ad553",
-    "semantic_hash": "39ee2e4587acdf090a5af3b2434ad553"
+    "mtime": 1793003965.8727114,
+    "seen": 1793004202.624936,
+    "ast_hash": "636ffc599a8657facd65875f6e80bb20",
+    "semantic_hash": ""
   },
   "gametest/resources/fabric.mod.json": {
     "mtime": 1793000224.7666862,
-    "seen": 1793002572.2696328,
+    "seen": 1793004202.624936,
     "ast_hash": "4658ce54b56b089ef901844c66bc1b96",
-    "semantic_hash": "4658ce54b56b089ef901844c66bc1b96"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/DMLConfig.java": {
     "mtime": 1792999502.3693223,
-    "seen": 1793002572.2696342,
+    "seen": 1793004202.624936,
     "ast_hash": "4db77cf0d299a78d3606f1290d1449fd",
-    "semantic_hash": "4db77cf0d299a78d3606f1290d1449fd"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/DMLRegistry.java": {
     "mtime": 1792998581.1820333,
-    "seen": 1793002572.2696347,
+    "seen": 1793004202.624936,
     "ast_hash": "c65214b17f122e63961f81fd5b80666c",
-    "semantic_hash": "c65214b17f122e63961f81fd5b80666c"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/DragonMountsLegacy.java": {
     "mtime": 1792998726.300458,
-    "seen": 1793002572.2696357,
+    "seen": 1793004202.624936,
     "ast_hash": "fc20299b43a9c7feb56fe99a26df59a1",
-    "semantic_hash": "fc20299b43a9c7feb56fe99a26df59a1"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/client/DragonAnimator.java": {
     "mtime": 1792998653.37412,
-    "seen": 1793002572.2696362,
+    "seen": 1793004202.624936,
     "ast_hash": "5f7b212732199bda32cd2a30facacdac",
-    "semantic_hash": "5f7b212732199bda32cd2a30facacdac"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/client/DragonEggModel.java": {
     "mtime": 1792999565.7080767,
-    "seen": 1793002572.2696369,
+    "seen": 1793004202.624936,
     "ast_hash": "81eba4acad3a27e00fcb8537ec992d19",
-    "semantic_hash": "81eba4acad3a27e00fcb8537ec992d19"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/client/DragonModel.java": {
     "mtime": 1792998653.37412,
-    "seen": 1793002572.2696373,
+    "seen": 1793004202.624936,
     "ast_hash": "d7c8a7de1445e87142101a574a24ea5b",
-    "semantic_hash": "d7c8a7de1445e87142101a574a24ea5b"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/client/DragonRenderer.java": {
     "mtime": 1792998679.7357757,
-    "seen": 1793002572.2696378,
+    "seen": 1793004202.624936,
     "ast_hash": "dc0bfce21b3230e411227acfbc69b94e",
-    "semantic_hash": "dc0bfce21b3230e411227acfbc69b94e"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/client/KeyMappings.java": {
     "mtime": 1792998671.5619023,
-    "seen": 1793002572.2696383,
+    "seen": 1793004202.624936,
     "ast_hash": "d4f9c655337c5c52da2db7f1781cc080",
-    "semantic_hash": "d4f9c655337c5c52da2db7f1781cc080"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/client/ModelPartProxy.java": {
     "mtime": 1792998653.37412,
-    "seen": 1793002572.269639,
+    "seen": 1793004202.624936,
     "ast_hash": "933a88cb5f46e63ea982413d7a45a4d5",
-    "semantic_hash": "933a88cb5f46e63ea982413d7a45a4d5"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/client/MountCameraManager.java": {
     "mtime": 1792998168.764265,
-    "seen": 1793002572.2696395,
+    "seen": 1793004202.624936,
     "ast_hash": "c505308b66162938d34755df4140fa24",
-    "semantic_hash": "c505308b66162938d34755df4140fa24"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/client/MountControlsMessenger.java": {
     "mtime": 1792998168.7710462,
-    "seen": 1793002572.2696402,
+    "seen": 1793004202.624936,
     "ast_hash": "320a400eaa7d5a4b85e290d9267a4377",
-    "semantic_hash": "320a400eaa7d5a4b85e290d9267a4377"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/compat/emi/DragonMountsEmiPlugin.java": {
     "mtime": 1792999629.9971578,
-    "seen": 1793002572.2696407,
+    "seen": 1793004202.624936,
     "ast_hash": "47b1389e1214e090e029c30a64046f16",
-    "semantic_hash": "47b1389e1214e090e029c30a64046f16"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/compat/jade/DragonEggProvider.java": {
     "mtime": 1792999629.7394903,
-    "seen": 1793002572.2696412,
+    "seen": 1793004202.624936,
     "ast_hash": "828f98468e713cfe01f07019f015f199",
-    "semantic_hash": "828f98468e713cfe01f07019f015f199"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/compat/jade/DragonMountsJadePlugin.java": {
     "mtime": 1792999629.5415976,
-    "seen": 1793002572.2696416,
+    "seen": 1793004202.624936,
     "ast_hash": "aead822b361b9357c0e565bb7d40667d",
-    "semantic_hash": "aead822b361b9357c0e565bb7d40667d"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/compat/jade/DragonProvider.java": {
     "mtime": 1792999629.873968,
-    "seen": 1793002572.2696419,
+    "seen": 1793004202.624936,
     "ast_hash": "e03b12d1f7b982a97bc36da0c95e0d18",
-    "semantic_hash": "e03b12d1f7b982a97bc36da0c95e0d18"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/data/CrossBreedingManager.java": {
     "mtime": 1792998639.267163,
-    "seen": 1793002572.2696426,
+    "seen": 1793004202.624936,
     "ast_hash": "bad4ccb78a87b03340f1b6e1a80e44a1",
-    "semantic_hash": "bad4ccb78a87b03340f1b6e1a80e44a1"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/data/loot/DragonEggLootTargets.java": {
     "mtime": 1792999480.2040727,
-    "seen": 1793002572.2696433,
+    "seen": 1793004202.624936,
     "ast_hash": "cc0f02fce7152d92c9fc3298c9fdd40d",
-    "semantic_hash": "cc0f02fce7152d92c9fc3298c9fdd40d"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/data/loot/conditions/RandomChanceByConfig.java": {
     "mtime": 1792999485.7096965,
-    "seen": 1793002572.2696438,
+    "seen": 1793004202.624936,
     "ast_hash": "263b423d29e92e4b9cc79caf17ef595b",
-    "semantic_hash": "263b423d29e92e4b9cc79caf17ef595b"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/data/model/DragonModelPropertiesListener.java": {
     "mtime": 1792998671.5602717,
-    "seen": 1793002572.2696443,
+    "seen": 1793004202.624936,
     "ast_hash": "e5a36d6c4b027a3aaa93f9474ead0a86",
-    "semantic_hash": "e5a36d6c4b027a3aaa93f9474ead0a86"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/DragonBreed.java": {
     "mtime": 1792998608.9327857,
-    "seen": 1793002572.2696447,
+    "seen": 1793004202.624936,
     "ast_hash": "5e2be40566209654976a068e9a729f7a",
-    "semantic_hash": "5e2be40566209654976a068e9a729f7a"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/DragonSpawnEgg.java": {
     "mtime": 1792998639.267163,
-    "seen": 1793002572.2696455,
+    "seen": 1793004202.624936,
     "ast_hash": "ae76599f92fbe5922de0c12be47ac726",
-    "semantic_hash": "ae76599f92fbe5922de0c12be47ac726"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/TameableDragon.java": {
     "mtime": 1792998626.0255368,
-    "seen": 1793002572.2696462,
+    "seen": 1793004202.624936,
     "ast_hash": "51320fb27def107a1e03a76ae2f5bbcd",
-    "semantic_hash": "51320fb27def107a1e03a76ae2f5bbcd"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/abilities/Ability.java": {
     "mtime": 1792998168.790234,
-    "seen": 1793002572.2696466,
+    "seen": 1793004202.624936,
     "ast_hash": "9b8bd71d6eb1098748ca51044e6c29c5",
-    "semantic_hash": "9b8bd71d6eb1098748ca51044e6c29c5"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/abilities/FootprintAbility.java": {
     "mtime": 1792998595.6626368,
-    "seen": 1793002572.2696471,
+    "seen": 1793004202.624936,
     "ast_hash": "6d07261f3ddcfdbb61efd1a61ac567fa",
-    "semantic_hash": "6d07261f3ddcfdbb61efd1a61ac567fa"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/abilities/FrostWalkerAbility.java": {
     "mtime": 1792998595.664762,
-    "seen": 1793002572.2696476,
+    "seen": 1793004202.624936,
     "ast_hash": "302e5f67016a8bd7521b7c0d3b010d14",
-    "semantic_hash": "302e5f67016a8bd7521b7c0d3b010d14"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/abilities/GreenToesAbility.java": {
     "mtime": 1792998168.790234,
-    "seen": 1793002572.269648,
+    "seen": 1793004202.624936,
     "ast_hash": "e63f7ec9fd693ecb9c4195804b367397",
-    "semantic_hash": "e63f7ec9fd693ecb9c4195804b367397"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/abilities/HotFeetAbility.java": {
     "mtime": 1792998595.6626368,
-    "seen": 1793002572.2696488,
+    "seen": 1793004202.624936,
     "ast_hash": "486ebe60da7cacc95674db87c0d5e956",
-    "semantic_hash": "486ebe60da7cacc95674db87c0d5e956"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/abilities/HydroStepAbility.java": {
     "mtime": 1792998168.790234,
-    "seen": 1793002572.2696495,
+    "seen": 1793004202.624936,
     "ast_hash": "34b27de5ed994831bc265ab89f4c14ba",
-    "semantic_hash": "34b27de5ed994831bc265ab89f4c14ba"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/abilities/ReaperStepAbility.java": {
     "mtime": 1792998588.7519765,
-    "seen": 1793002572.26965,
+    "seen": 1793004202.624936,
     "ast_hash": "c1a06d15c52278cf25850e26cb0c8811",
-    "semantic_hash": "c1a06d15c52278cf25850e26cb0c8811"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/abilities/SnowStepperAbility.java": {
     "mtime": 1792998168.7946222,
-    "seen": 1793002572.2696502,
+    "seen": 1793004202.624936,
     "ast_hash": "8e3a5ea4aaa64bcd1407eacd1abd300f",
-    "semantic_hash": "8e3a5ea4aaa64bcd1407eacd1abd300f"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/ai/DragonBodyController.java": {
     "mtime": 1792998168.788167,
-    "seen": 1793002572.2696507,
+    "seen": 1793004202.624936,
     "ast_hash": "b5cc029e5c3b41b4de12a4587b50b5af",
-    "semantic_hash": "b5cc029e5c3b41b4de12a4587b50b5af"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/ai/DragonBreedGoal.java": {
     "mtime": 1792998595.664762,
-    "seen": 1793002572.2696514,
+    "seen": 1793004202.624936,
     "ast_hash": "21fde73ddcc645a711bf8b27e08c4e5e",
-    "semantic_hash": "21fde73ddcc645a711bf8b27e08c4e5e"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/ai/DragonFollowOwnerGoal.java": {
     "mtime": 1792998168.788167,
-    "seen": 1793002572.269652,
+    "seen": 1793004202.624936,
     "ast_hash": "13c4b6e4925ab4bce85887507fd9f86e",
-    "semantic_hash": "13c4b6e4925ab4bce85887507fd9f86e"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/ai/DragonMoveController.java": {
     "mtime": 1792998168.790234,
-    "seen": 1793002572.2696524,
+    "seen": 1793004202.624936,
     "ast_hash": "691da5f15124bbc0e04a66bb318cfcda",
-    "semantic_hash": "691da5f15124bbc0e04a66bb318cfcda"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/egg/HatchableEggBlock.java": {
     "mtime": 1792998659.8630958,
-    "seen": 1793002572.269653,
+    "seen": 1793004202.624936,
     "ast_hash": "670ca9c80e583e5fee27f6115e5ae3fc",
-    "semantic_hash": "670ca9c80e583e5fee27f6115e5ae3fc"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/egg/HatchableEggBlockEntity.java": {
     "mtime": 1792999597.1989322,
-    "seen": 1793002572.2696536,
+    "seen": 1793004202.624936,
     "ast_hash": "de9c0248c0745c59f71a721fc72f6a8f",
-    "semantic_hash": "de9c0248c0745c59f71a721fc72f6a8f"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/egg/habitats/BiomeHabitat.java": {
     "mtime": 1792998168.7946222,
-    "seen": 1793002572.269654,
+    "seen": 1793004202.624936,
     "ast_hash": "ef2959d071daea9701859b7c701148cb",
-    "semantic_hash": "ef2959d071daea9701859b7c701148cb"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/egg/habitats/DragonBreathHabitat.java": {
     "mtime": 1792998168.7946222,
-    "seen": 1793002572.2696545,
+    "seen": 1793004202.624936,
     "ast_hash": "f6df6d874bd63d0b25a0716ae0c4ea9f",
-    "semantic_hash": "f6df6d874bd63d0b25a0716ae0c4ea9f"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/egg/habitats/FluidHabitat.java": {
     "mtime": 1792998168.7946222,
-    "seen": 1793002572.269655,
+    "seen": 1793004202.624936,
     "ast_hash": "ba58d1fd756c2c6fb42ceaefa7951b4e",
-    "semantic_hash": "ba58d1fd756c2c6fb42ceaefa7951b4e"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/egg/habitats/Habitat.java": {
     "mtime": 1792998168.7946222,
-    "seen": 1793002572.2696557,
+    "seen": 1793004202.624936,
     "ast_hash": "03e4616de0ccaa7607402109ae18c29b",
-    "semantic_hash": "03e4616de0ccaa7607402109ae18c29b"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/egg/habitats/HeightHabitat.java": {
     "mtime": 1792998168.7946222,
-    "seen": 1793002572.2696564,
+    "seen": 1793004202.624936,
     "ast_hash": "147ce3d95d147f6f68128cee35ba5e1c",
-    "semantic_hash": "147ce3d95d147f6f68128cee35ba5e1c"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/egg/habitats/LightHabitat.java": {
     "mtime": 1792998168.7997658,
-    "seen": 1793002572.2696571,
+    "seen": 1793004202.624936,
     "ast_hash": "e495651df0bc18f63fd14e961ca1ae6a",
-    "semantic_hash": "e495651df0bc18f63fd14e961ca1ae6a"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/egg/habitats/NearbyBlocksHabitat.java": {
     "mtime": 1792998168.7997658,
-    "seen": 1793002572.2696576,
+    "seen": 1793004202.624936,
     "ast_hash": "5292cc425d0274fec6d246d5e203f8c1",
-    "semantic_hash": "5292cc425d0274fec6d246d5e203f8c1"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/dragon/egg/habitats/PickyHabitat.java": {
     "mtime": 1792998168.8014517,
-    "seen": 1793002572.269658,
+    "seen": 1793004202.624936,
     "ast_hash": "d669a822459590132bc714bbc89d2181",
-    "semantic_hash": "d669a822459590132bc714bbc89d2181"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/fabric/DMLCustomRegistries.java": {
     "mtime": 1792998727.4339645,
-    "seen": 1793002572.2696588,
+    "seen": 1793004202.624936,
     "ast_hash": "e3dff71a9011f4a00fd4f4ebecc7b28e",
-    "semantic_hash": "e3dff71a9011f4a00fd4f4ebecc7b28e"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/fabric/DragonMountsFabric.java": {
     "mtime": 1792999534.8541014,
-    "seen": 1793002572.2696593,
+    "seen": 1793004202.624936,
     "ast_hash": "cdcb80e5a205759b2847395b23efd9bc",
-    "semantic_hash": "cdcb80e5a205759b2847395b23efd9bc"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/fabric/DragonMountsFabricClient.java": {
     "mtime": 1792998709.3260314,
-    "seen": 1793002572.26966,
+    "seen": 1793004202.624936,
     "ast_hash": "6215e3b628c154f5b90add814d45edfa",
-    "semantic_hash": "6215e3b628c154f5b90add814d45edfa"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/fabric/ServerHolder.java": {
     "mtime": 1792998726.6949596,
-    "seen": 1793002572.2696605,
+    "seen": 1793004202.624936,
     "ast_hash": "2ca21045816cb2cb2fd666257b058252",
-    "semantic_hash": "2ca21045816cb2cb2fd666257b058252"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/fabric/SidedAccess.java": {
     "mtime": 1792998726.9831605,
-    "seen": 1793002572.269661,
+    "seen": 1793004202.624936,
     "ast_hash": "847c3eca374ddc18a6f8036179d77b2e",
-    "semantic_hash": "847c3eca374ddc18a6f8036179d77b2e"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/fabric/client/ClientAccess.java": {
     "mtime": 1792998727.2431314,
-    "seen": 1793002572.2696614,
+    "seen": 1793004202.624936,
     "ast_hash": "e570136b41fb97fde46712da39303df2",
-    "semantic_hash": "e570136b41fb97fde46712da39303df2"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/mixins/EnsureSafeFlyingVehicleMixin.java": {
     "mtime": 1792999514.7574854,
-    "seen": 1793002572.2696621,
+    "seen": 1793004202.624936,
     "ast_hash": "d7838c2901f196d452d45c067927076b",
-    "semantic_hash": "d7838c2901f196d452d45c067927076b"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/mixins/ReplenishDragonEggMixin.java": {
     "mtime": 1793002056.607755,
-    "seen": 1793002572.2696626,
+    "seen": 1793004202.624936,
     "ast_hash": "10f5dad11f1849e742bb627dbb74cafb",
-    "semantic_hash": "10f5dad11f1849e742bb627dbb74cafb"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/mixins/client/CameraMixin.java": {
     "mtime": 1792998709.3255768,
-    "seen": 1793002572.2696629,
+    "seen": 1793004202.624936,
     "ast_hash": "e93466b0fe00a952cd1f8e40f94d7f63",
-    "semantic_hash": "e93466b0fe00a952cd1f8e40f94d7f63"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/util/CircularBuffer.java": {
     "mtime": 1792998168.760637,
-    "seen": 1793002572.2696638,
+    "seen": 1793004202.624936,
     "ast_hash": "86f1db844f220a5b0438f4a590689fed",
-    "semantic_hash": "86f1db844f220a5b0438f4a590689fed"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/util/DMLUtil.java": {
     "mtime": 1792998588.73343,
-    "seen": 1793002572.2696645,
+    "seen": 1793004202.624936,
     "ast_hash": "3888626ee4e0f3f9770c9f4aef605e09",
-    "semantic_hash": "3888626ee4e0f3f9770c9f4aef605e09"
+    "semantic_hash": ""
   },
   "main/java/com/github/kay9/dragonmounts/util/LerpedFloat.java": {
     "mtime": 1792998168.760637,
-    "seen": 1793002572.269665,
+    "seen": 1793004202.624936,
     "ast_hash": "4e7424e73e09835592697e15e993ee07",
-    "semantic_hash": "4e7424e73e09835592697e15e993ee07"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/blockstates/dragon_egg.json": {
     "mtime": 1792998973.7797613,
-    "seen": 1793002572.2696652,
+    "seen": 1793004202.624936,
     "ast_hash": "6ddbd9658e10503a6c877de5b80c19dc",
-    "semantic_hash": "6ddbd9658e10503a6c877de5b80c19dc"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/lang/en_us.json": {
     "mtime": 1792999584.9155822,
-    "seen": 1793002572.269666,
+    "seen": 1793004202.624936,
     "ast_hash": "d7ee38f9f65cea1c0b3928e3bd4b40bb",
-    "semantic_hash": "d7ee38f9f65cea1c0b3928e3bd4b40bb"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/lang/ja_jp.json": {
     "mtime": 1792998168.9476554,
-    "seen": 1793002572.2696667,
+    "seen": 1793004202.624936,
     "ast_hash": "614c2aed0a11fe1d79183def9e66a013",
-    "semantic_hash": "614c2aed0a11fe1d79183def9e66a013"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/lang/uk_ua.json": {
     "mtime": 1792998168.9396417,
-    "seen": 1793002572.2696671,
+    "seen": 1793004202.624936,
     "ast_hash": "3ae739226d467fa38bbf2c809f15c2fb",
-    "semantic_hash": "3ae739226d467fa38bbf2c809f15c2fb"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/block/dragon_egg.json": {
     "mtime": 1792998973.7797613,
-    "seen": 1793002572.2696676,
+    "seen": 1793004202.624936,
     "ast_hash": "d3e4d7bef844b7d62e88aa6567ddeaf8",
-    "semantic_hash": "d3e4d7bef844b7d62e88aa6567ddeaf8"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/block/dragon_eggs/aether_dragon_egg.json": {
     "mtime": 1792998168.9071825,
-    "seen": 1793002572.269668,
+    "seen": 1793004202.624936,
     "ast_hash": "efbac7ca6dc2671294672658fa7fe9d9",
-    "semantic_hash": "efbac7ca6dc2671294672658fa7fe9d9"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/block/dragon_eggs/end_dragon_egg.json": {
     "mtime": 1792998168.9071825,
-    "seen": 1793002572.2696686,
+    "seen": 1793004202.624936,
     "ast_hash": "a95eefe351e294a691db2e3cfb84b47e",
-    "semantic_hash": "a95eefe351e294a691db2e3cfb84b47e"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/block/dragon_eggs/fire_dragon_egg.json": {
     "mtime": 1792998168.9071825,
-    "seen": 1793002572.269669,
+    "seen": 1793004202.624936,
     "ast_hash": "a9ab533aabbc04f338ed1c211dc706d7",
-    "semantic_hash": "a9ab533aabbc04f338ed1c211dc706d7"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/block/dragon_eggs/forest_dragon_egg.json": {
     "mtime": 1792998168.932475,
-    "seen": 1793002572.2696693,
+    "seen": 1793004202.624936,
     "ast_hash": "ac67f0aae11d304b1264ef607a4a2584",
-    "semantic_hash": "ac67f0aae11d304b1264ef607a4a2584"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/block/dragon_eggs/ghost_dragon_egg.json": {
     "mtime": 1792998168.9071825,
-    "seen": 1793002572.2696698,
+    "seen": 1793004202.624936,
     "ast_hash": "1e3aedf6d08d2fd0a8030d3af87ca243",
-    "semantic_hash": "1e3aedf6d08d2fd0a8030d3af87ca243"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/block/dragon_eggs/ice_dragon_egg.json": {
     "mtime": 1792998168.9071825,
-    "seen": 1793002572.2696707,
+    "seen": 1793004202.624936,
     "ast_hash": "20c25629dc18af464e30f629ddb3660d",
-    "semantic_hash": "20c25629dc18af464e30f629ddb3660d"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/block/dragon_eggs/nether_dragon_egg.json": {
     "mtime": 1792998168.923998,
-    "seen": 1793002572.2696712,
+    "seen": 1793004202.624936,
     "ast_hash": "f99e06bc3f86706b15b43787cabb27cb",
-    "semantic_hash": "f99e06bc3f86706b15b43787cabb27cb"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/block/dragon_eggs/water_dragon_egg.json": {
     "mtime": 1792998168.938488,
-    "seen": 1793002572.2696717,
+    "seen": 1793004202.624936,
     "ast_hash": "6d2afa07444d0eaf526d495ecdef9735",
-    "semantic_hash": "6d2afa07444d0eaf526d495ecdef9735"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/entity/dragon/breed/properties/fire.json": {
     "mtime": 1792998169.221173,
-    "seen": 1793002572.2696722,
+    "seen": 1793004202.624936,
     "ast_hash": "a4c60200f59116558560edde51deaf75",
-    "semantic_hash": "a4c60200f59116558560edde51deaf75"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/entity/dragon/breed/properties/ghost.json": {
     "mtime": 1792998169.221173,
-    "seen": 1793002572.2696726,
+    "seen": 1793004202.624936,
     "ast_hash": "33c6c5faf15a5fa5b3fe38f35b2bf093",
-    "semantic_hash": "33c6c5faf15a5fa5b3fe38f35b2bf093"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/entity/dragon/breed/properties/water.json": {
     "mtime": 1792998169.2222662,
-    "seen": 1793002572.269673,
+    "seen": 1793004202.624936,
     "ast_hash": "94a8a83e40f322ab684fbd47f5d0bb3a",
-    "semantic_hash": "94a8a83e40f322ab684fbd47f5d0bb3a"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/item/dragon_egg.json": {
     "mtime": 1792998973.7797613,
-    "seen": 1793002572.2696738,
+    "seen": 1793004202.624936,
     "ast_hash": "58ba6d27255105a1ccea6a3b38194f61",
-    "semantic_hash": "58ba6d27255105a1ccea6a3b38194f61"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/models/item/spawn_egg.json": {
     "mtime": 1792998168.9391353,
-    "seen": 1793002572.2696743,
+    "seen": 1793004202.624936,
     "ast_hash": "c0b0acc02a71c2bfd45d3bf033b6393c",
-    "semantic_hash": "c0b0acc02a71c2bfd45d3bf033b6393c"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/sounds.json": {
     "mtime": 1792998169.112092,
-    "seen": 1793002572.269675,
+    "seen": 1793004202.624936,
     "ast_hash": "656f397eee8c01e8dc57254b87a3148a",
-    "semantic_hash": "656f397eee8c01e8dc57254b87a3148a"
+    "semantic_hash": ""
   },
   "main/resources/data/carryon/tags/block/block_blacklist.json": {
     "mtime": 1792999639.2980847,
-    "seen": 1793002572.2696755,
+    "seen": 1793004202.624936,
     "ast_hash": "b6f2c5cfa34165bd7b3a312bb155d759",
-    "semantic_hash": "b6f2c5cfa34165bd7b3a312bb155d759"
+    "semantic_hash": ""
   },
   "main/resources/data/carryon/tags/entity_type/entity_blacklist.json": {
     "mtime": 1792999639.2980847,
-    "seen": 1793002572.269676,
+    "seen": 1793004202.624936,
     "ast_hash": "9445008852049cc692e6c4092e61d7a0",
-    "semantic_hash": "9445008852049cc692e6c4092e61d7a0"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/dragonmounts/dragon_breeds/aether.json": {
     "mtime": 1792998169.2520819,
-    "seen": 1793002572.2696764,
+    "seen": 1793004202.624936,
     "ast_hash": "cf248655d1d1b72195c58090c53325b6",
-    "semantic_hash": "cf248655d1d1b72195c58090c53325b6"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/dragonmounts/dragon_breeds/end.json": {
     "mtime": 1792998169.2520819,
-    "seen": 1793002572.2696772,
+    "seen": 1793004202.624936,
     "ast_hash": "0c2a2faf06fd1a26c235d0a21d1af9d5",
-    "semantic_hash": "0c2a2faf06fd1a26c235d0a21d1af9d5"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/dragonmounts/dragon_breeds/fire.json": {
     "mtime": 1792998169.250527,
-    "seen": 1793002572.2696776,
+    "seen": 1793004202.624936,
     "ast_hash": "9f1ad2f24eace09938b729b167d4612c",
-    "semantic_hash": "9f1ad2f24eace09938b729b167d4612c"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/dragonmounts/dragon_breeds/forest.json": {
     "mtime": 1792998169.250527,
-    "seen": 1793002572.269678,
+    "seen": 1793004202.624936,
     "ast_hash": "2c9e1910279c74bafb5cdbe765f4d4f1",
-    "semantic_hash": "2c9e1910279c74bafb5cdbe765f4d4f1"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/dragonmounts/dragon_breeds/ghost.json": {
     "mtime": 1792998169.2500196,
-    "seen": 1793002572.2696788,
+    "seen": 1793004202.624936,
     "ast_hash": "7cd97b4a027d28ede6517bd132a2cc6c",
-    "semantic_hash": "7cd97b4a027d28ede6517bd132a2cc6c"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/dragonmounts/dragon_breeds/ice.json": {
     "mtime": 1792998169.250527,
-    "seen": 1793002572.2696793,
+    "seen": 1793004202.624936,
     "ast_hash": "08bf39a91be299459f527f4e8e0f85f2",
-    "semantic_hash": "08bf39a91be299459f527f4e8e0f85f2"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/dragonmounts/dragon_breeds/nether.json": {
     "mtime": 1792998169.2464147,
-    "seen": 1793002572.2696798,
+    "seen": 1793004202.624936,
     "ast_hash": "f695040373604873ae8d8ac60779bc3b",
-    "semantic_hash": "f695040373604873ae8d8ac60779bc3b"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/dragonmounts/dragon_breeds/water.json": {
     "mtime": 1792998169.2464147,
-    "seen": 1793002572.2696834,
+    "seen": 1793004202.624936,
     "ast_hash": "28d33174b36b61e11982552ff981d27a",
-    "semantic_hash": "28d33174b36b61e11982552ff981d27a"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/loot_table/blocks/dragon_egg.json": {
     "mtime": 1792998169.2715878,
-    "seen": 1793002572.2696843,
+    "seen": 1793004202.624936,
     "ast_hash": "95f4f482e1954dd6322917eab6426d70",
-    "semantic_hash": "95f4f482e1954dd6322917eab6426d70"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/tags/block/fire_dragon_habitat_blocks.json": {
     "mtime": 1792998169.2700188,
-    "seen": 1793002572.2696848,
+    "seen": 1793004202.624936,
     "ast_hash": "6234b68f53c0285a81bc1709b222a782",
-    "semantic_hash": "6234b68f53c0285a81bc1709b222a782"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/tags/block/forest_dragon_habitat_blocks.json": {
     "mtime": 1792998169.2665212,
-    "seen": 1793002572.2696853,
+    "seen": 1793004202.624936,
     "ast_hash": "be6823fd012b9ae2965fff27053285a0",
-    "semantic_hash": "be6823fd012b9ae2965fff27053285a0"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/tags/block/hot_feet_burnables.json": {
     "mtime": 1792998169.2665212,
-    "seen": 1793002572.2696857,
+    "seen": 1793004202.624936,
     "ast_hash": "4453be16561907ba7741992fffcffa85",
-    "semantic_hash": "4453be16561907ba7741992fffcffa85"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/tags/block/ice_dragon_habitat_blocks.json": {
     "mtime": 1792998169.2520819,
-    "seen": 1793002572.2696862,
+    "seen": 1793004202.624936,
     "ast_hash": "c01b8db9ee2dd8e16983b139c81fe751",
-    "semantic_hash": "c01b8db9ee2dd8e16983b139c81fe751"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/tags/block/nether_dragon_habitat_blocks.json": {
     "mtime": 1792998169.261833,
-    "seen": 1793002572.2696867,
+    "seen": 1793004202.624936,
     "ast_hash": "a1adc72d3a141f8eb7c201a43a8f2cd4",
-    "semantic_hash": "a1adc72d3a141f8eb7c201a43a8f2cd4"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/tags/block/reaper_plant_death.json": {
     "mtime": 1792998169.261833,
-    "seen": 1793002572.2696874,
+    "seen": 1793004202.624936,
     "ast_hash": "31ce3b3eddb7d30ff0d921e116ceca1d",
-    "semantic_hash": "31ce3b3eddb7d30ff0d921e116ceca1d"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/tags/block/reaper_plant_destruction.json": {
     "mtime": 1792998169.261833,
-    "seen": 1793002572.2696881,
+    "seen": 1793004202.624936,
     "ast_hash": "c520ba76f570643d777a60f400487d77",
-    "semantic_hash": "c520ba76f570643d777a60f400487d77"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/tags/block/reaper_transform.json": {
     "mtime": 1792998169.2665212,
-    "seen": 1793002572.2696886,
+    "seen": 1793004202.624936,
     "ast_hash": "9e46bb7577e56e58bbacc9373bcd99e6",
-    "semantic_hash": "9e46bb7577e56e58bbacc9373bcd99e6"
+    "semantic_hash": ""
   },
   "main/resources/data/dragonmounts/tags/block/water_dragon_habitat_blocks.json": {
     "mtime": 1792998169.2700188,
-    "seen": 1793002572.269689,
+    "seen": 1793004202.624936,
     "ast_hash": "1d15ad5d3050c33a5d380a2158738ef2",
-    "semantic_hash": "1d15ad5d3050c33a5d380a2158738ef2"
+    "semantic_hash": ""
   },
   "main/resources/data/lootr/tags/item/integrated_loot/excluded.json": {
     "mtime": 1793000240.7544866,
-    "seen": 1793002572.2696896,
+    "seen": 1793004202.624936,
     "ast_hash": "b6f2c5cfa34165bd7b3a312bb155d759",
-    "semantic_hash": "b6f2c5cfa34165bd7b3a312bb155d759"
+    "semantic_hash": ""
   },
   "main/resources/dragonmounts.mixins.json": {
     "mtime": 1792998709.3911595,
-    "seen": 1793002572.26969,
+    "seen": 1793004202.624936,
     "ast_hash": "9ecefa927452dcd474521d460cd938a1",
-    "semantic_hash": "9ecefa927452dcd474521d460cd938a1"
+    "semantic_hash": ""
   },
   "main/resources/fabric.mod.json": {
     "mtime": 1792999574.0702798,
-    "seen": 1793002572.269691,
+    "seen": 1793004202.624936,
     "ast_hash": "2d38943ef06223c041a6b589af11a9e1",
-    "semantic_hash": "2d38943ef06223c041a6b589af11a9e1"
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/icon.png": {
+    "mtime": 1793004006.1507354,
+    "seen": 1793004202.624936,
+    "ast_hash": "fee41294336659245e2c0dee9050cd95",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/block/aether_dragon_egg.png": {
+    "mtime": 1792998168.975889,
+    "seen": 1793004202.624936,
+    "ast_hash": "6cd43777095aed705a7ec055976d04ad",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/block/fire_dragon_egg.png": {
+    "mtime": 1792998168.9880672,
+    "seen": 1793004202.624936,
+    "ast_hash": "5fc37a563e11e30b085cfe397087312f",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/block/forest_dragon_egg.png": {
+    "mtime": 1792998168.9541805,
+    "seen": 1793004202.624936,
+    "ast_hash": "a16b0ddc15649d2145e837781d8d2008",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/block/ghost_dragon_egg.png": {
+    "mtime": 1792998168.9622753,
+    "seen": 1793004202.624936,
+    "ast_hash": "0f30812aa09f344d29e1472749235dc0",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/block/ice_dragon_egg.png": {
+    "mtime": 1792998168.9541805,
+    "seen": 1793004202.624936,
+    "ast_hash": "ee91caef817e472e57e4b9a3037788a3",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/block/nether_dragon_egg.png": {
+    "mtime": 1792998168.9779394,
+    "seen": 1793004202.624936,
+    "ast_hash": "78d56ff4acd59a8a54b7511c9ce73d11",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/block/water_dragon_egg.png": {
+    "mtime": 1792998168.9880672,
+    "seen": 1793004202.624936,
+    "ast_hash": "6ae9ffdae40f2093f7d6fd743ed3c011",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/aether/body.png": {
+    "mtime": 1792998169.0646062,
+    "seen": 1793004202.624936,
+    "ast_hash": "d1b53ff04450c38d6db692bec5bc7fc2",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/aether/glow.png": {
+    "mtime": 1792998169.0777535,
+    "seen": 1793004202.624936,
+    "ast_hash": "43a2681f1d3494dbb8fa79b481da7904",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/aether/saddle.png": {
+    "mtime": 1792998169.0646062,
+    "seen": 1793004202.624936,
+    "ast_hash": "012d51ed348a0bd20e05c8fe91ac95f6",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/dissolve.png": {
+    "mtime": 1792998169.0975752,
+    "seen": 1793004202.624936,
+    "ast_hash": "3857ad6e12f6b80fe5a8b2045cde3714",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/end/body.png": {
+    "mtime": 1792998169.0975752,
+    "seen": 1793004202.624936,
+    "ast_hash": "8b3b81556d948f4d2f1d56e152adbb53",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/end/glow.png": {
+    "mtime": 1792998169.0975752,
+    "seen": 1793004202.624936,
+    "ast_hash": "0c7d166dec6e5824dbfe9178ecc0733b",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/end/saddle.png": {
+    "mtime": 1792998169.0960011,
+    "seen": 1793004202.624936,
+    "ast_hash": "91b1a287b0fd8b795c69bf4e0dda37b4",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/fire/body.png": {
+    "mtime": 1792998169.0824828,
+    "seen": 1793004202.624936,
+    "ast_hash": "ebe2cd3cf5bda661fd3d8fe2ce7a129e",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/fire/glow.png": {
+    "mtime": 1792998169.0824828,
+    "seen": 1793004202.624936,
+    "ast_hash": "3a4a1324cfb312880c8aa06733019e89",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/fire/saddle.png": {
+    "mtime": 1792998169.0824828,
+    "seen": 1793004202.624936,
+    "ast_hash": "5c1a28ade9bbf476b0a8e7fdff64ecfb",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/forest/body.png": {
+    "mtime": 1792998169.112092,
+    "seen": 1793004202.624936,
+    "ast_hash": "a1a7c0cc5b1b1770585d27b2582a8d41",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/forest/glow.png": {
+    "mtime": 1792998169.112092,
+    "seen": 1793004202.624936,
+    "ast_hash": "d1e78acf8dbec139a99755246b3b6d3c",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/forest/saddle.png": {
+    "mtime": 1792998169.112092,
+    "seen": 1793004202.624936,
+    "ast_hash": "bdedf57010de0bfa2d96bc375a5005c9",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/ghost/body.png": {
+    "mtime": 1792998169.019286,
+    "seen": 1793004202.624936,
+    "ast_hash": "3747019d5916765c04d51765593ccd59",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/ghost/glow.png": {
+    "mtime": 1792998169.0151148,
+    "seen": 1793004202.624936,
+    "ast_hash": "7cc14ad12e3379f68c0cb850d22d19da",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/ghost/saddle.png": {
+    "mtime": 1792998169.024556,
+    "seen": 1793004202.624936,
+    "ast_hash": "bead8039edaa67168b0c00091f4c6f80",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/ice/body.png": {
+    "mtime": 1792998169.028111,
+    "seen": 1793004202.624936,
+    "ast_hash": "d65cbfe9004f68bd0eaf1bacbea37f0e",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/ice/glow.png": {
+    "mtime": 1792998169.032653,
+    "seen": 1793004202.624936,
+    "ast_hash": "d7807f5b3472f3cee440b9442b389996",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/ice/saddle.png": {
+    "mtime": 1792998169.0342228,
+    "seen": 1793004202.624936,
+    "ast_hash": "fc2c9193692a1c3da32c377e61e1c886",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/nether/body.png": {
+    "mtime": 1792998169.0399046,
+    "seen": 1793004202.624936,
+    "ast_hash": "94414e72cf3c1f94cccc41a3cfde594a",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/nether/glow.png": {
+    "mtime": 1792998169.0489154,
+    "seen": 1793004202.624936,
+    "ast_hash": "54614a75e1e84825474e6dfbccc369ad",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/nether/saddle.png": {
+    "mtime": 1792998169.0399046,
+    "seen": 1793004202.624936,
+    "ast_hash": "0428d2d4e81dafdc97c5544680196e0c",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/water/body.png": {
+    "mtime": 1792998169.0489154,
+    "seen": 1793004202.624936,
+    "ast_hash": "48cbdde5bf95084456b579871fab51c4",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/water/glow.png": {
+    "mtime": 1792998169.0646062,
+    "seen": 1793004202.624936,
+    "ast_hash": "fc30618721e9a8a192b1dc50d924573f",
+    "semantic_hash": ""
+  },
+  "main/resources/assets/dragonmounts/textures/entity/dragon/water/saddle.png": {
+    "mtime": 1792998169.0489154,
+    "seen": 1793004202.624936,
+    "ast_hash": "e71597d1d4d389665588fd7ab02f3ca2",
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/sounds/entity/dragon/breathe1.ogg": {
     "mtime": 1792998169.143825,
-    "seen": 1793002572.2696915,
+    "seen": 1793004202.624936,
     "ast_hash": "aedf4c2d2dff39427dbb4aef0083c40c",
-    "semantic_hash": "aedf4c2d2dff39427dbb4aef0083c40c"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/sounds/entity/dragon/breathe2.ogg": {
     "mtime": 1792998169.1254654,
-    "seen": 1793002572.269692,
+    "seen": 1793004202.624936,
     "ast_hash": "030b8b83229019b0c07bbc5269be76d2",
-    "semantic_hash": "030b8b83229019b0c07bbc5269be76d2"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/sounds/entity/dragon/death.ogg": {
     "mtime": 1792998169.143825,
-    "seen": 1793002572.2696924,
+    "seen": 1793004202.624936,
     "ast_hash": "ecd71cd3df9424057e232ac334d513d2",
-    "semantic_hash": "ecd71cd3df9424057e232ac334d513d2"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/sounds/entity/dragon/step1.ogg": {
     "mtime": 1792998169.140313,
-    "seen": 1793002572.2696931,
+    "seen": 1793004202.624936,
     "ast_hash": "ec0e05a94beb42f99e8d779d67eedae6",
-    "semantic_hash": "ec0e05a94beb42f99e8d779d67eedae6"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/sounds/entity/dragon/step2.ogg": {
     "mtime": 1792998169.1279833,
-    "seen": 1793002572.2696936,
+    "seen": 1793004202.624936,
     "ast_hash": "da7a9ff7d5ead5bf8ed376786073915b",
-    "semantic_hash": "da7a9ff7d5ead5bf8ed376786073915b"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/sounds/entity/dragon/step3.ogg": {
     "mtime": 1792998169.1332026,
-    "seen": 1793002572.269694,
+    "seen": 1793004202.624936,
     "ast_hash": "6e00cee23b697cdc01d082d90683e10e",
-    "semantic_hash": "6e00cee23b697cdc01d082d90683e10e"
+    "semantic_hash": ""
   },
   "main/resources/assets/dragonmounts/sounds/entity/dragon/step4.ogg": {
     "mtime": 1792998169.1332026,
-    "seen": 1793002572.2696948,
+    "seen": 1793004202.624936,
     "ast_hash": "b2238aed8a7082878c2b09669884599f",
-    "semantic_hash": "b2238aed8a7082878c2b09669884599f"
+    "semantic_hash": ""
   }
 }
