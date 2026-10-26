@@ -26,6 +26,20 @@ public class ReplenishDragonEggMixin
     @WrapOperation(method = "tickDeath()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/dimension/end/EndDragonFight;setDragonKilled(Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;)V"))
     private void dragonmounts_replenishDragonEgg(EndDragonFight fight, EnderDragon dragon, Operation<Void> original)
     {
+        dragonmounts_setDragonKilledAndReplenish(fight, dragon, original);
+    }
+
+    /**
+     * Same as above, for {@link EnderDragon#kill()} (e.g. the /kill command), which also calls setDragonKilled directly.
+     */
+    @WrapOperation(method = "kill()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/dimension/end/EndDragonFight;setDragonKilled(Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;)V"))
+    private void dragonmounts_replenishDragonEggOnKill(EndDragonFight fight, EnderDragon dragon, Operation<Void> original)
+    {
+        dragonmounts_setDragonKilledAndReplenish(fight, dragon, original);
+    }
+
+    private static void dragonmounts_setDragonKilledAndReplenish(EndDragonFight fight, EnderDragon dragon, Operation<Void> original)
+    {
         original.call(fight, dragon);
 
         if (!DMLConfig.replenishEggs() || !(dragon.level() instanceof ServerLevel level)) return;

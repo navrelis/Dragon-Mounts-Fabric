@@ -514,6 +514,14 @@ public class DragonMountsGameTests implements FabricGameTest
      */
     private static EndDragonFight runDragonDeath(GameTestHelper helper, BlockPos origin)
     {
+        return runDragonDeath(helper, origin, false);
+    }
+
+    /**
+     * @param viaKill if true, the death is triggered through {@link EnderDragon#kill()} (like /kill does) instead of the death tick
+     */
+    private static EndDragonFight runDragonDeath(GameTestHelper helper, BlockPos origin, boolean viaKill)
+    {
         ServerLevel level = helper.getLevel();
         TestableEnderDragon dragon = new TestableEnderDragon(level);
         dragon.moveTo(origin.getX() + 0.5, origin.getY() + 20, origin.getZ() + 0.5);
@@ -522,6 +530,11 @@ public class DragonMountsGameTests implements FabricGameTest
         EndDragonFight fight = new EndDragonFight(level, level.getSeed(), data, origin);
         dragon.setDragonFight(fight);
         dragon.setFightOrigin(origin);
+        if (viaKill)
+        {
+            dragon.kill();
+            return fight;
+        }
         dragon.dragonDeathTime = 199; // tickDeath increments to 200, which finishes the fight
         dragon.runTickDeath();
         return fight;
@@ -541,6 +554,23 @@ public class DragonMountsGameTests implements FabricGameTest
         BlockPos eggPos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, EndPodiumFeature.getLocation(origin));
         int eggs = countVanillaEggsInColumn(level, eggPos);
         check(eggs == 1, "Expected exactly one vanilla dragon egg on the podium column, found " + eggs);
+        helper.succeed();
+    }
+
+    @GameTest(template = FabricGameTest.EMPTY_STRUCTURE, timeoutTicks = 200)
+    public void replenishPlacesEggAfterDragonKillCommand(GameTestHelper helper) throws ReflectiveOperationException
+    {
+        ModConfigSpec.BooleanValue replenish = booleanConfig("REPLENISH_EGGS");
+        check(replenish.get(), "replenish_eggs is expected to be true by default");
+
+        BlockPos origin = helper.absolutePos(new BlockPos(3, 0, 3));
+        EndDragonFight fight = runDragonDeath(helper, origin, true);
+
+        check(fight.portalLocation != null, "Fight did not create an exit portal (setDragonKilled was not reached via kill()?)");
+        ServerLevel level = helper.getLevel();
+        BlockPos eggPos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, EndPodiumFeature.getLocation(origin));
+        int eggs = countVanillaEggsInColumn(level, eggPos);
+        check(eggs == 1, "Expected exactly one vanilla dragon egg on the podium column after kill(), found " + eggs);
         helper.succeed();
     }
 

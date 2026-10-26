@@ -19,3 +19,5 @@
 - T8b Lootr excluded tag + T9b description/README refresh | Sonnet | short | accepted after 1 correction (MnS → Moog's Nether Structures)
 - T6 gametests | Sonnet | long | accepted: 16/16 pass (lead re-ran), incl. loot rates, hatching all breeds, tame/saddle, replenish via real EndDragonFight, vanilla-egg conversion; runServer reached Done with no mixin errors
 - T10a pack config | Sonnet | short | accepted: adventurez allow_dragon_hatching=false; entityculling entity+tick whitelist dragonmounts:dragon (uncommitted in pack repo)
+- T10 pack: jar copied to pack mods/; owner vetoed desktop control → headless harness server boot started; T5c kill() replenish wrap (Sonnet, short) and T6b remapped gametest jar (Sonnet, short) started
+- T5c kill() replenish wrap | Sonnet | short | accepted: second @WrapOperation on kill()V + gametest; 17/17 pass

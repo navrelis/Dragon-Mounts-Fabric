@@ -15,5 +15,5 @@ Usage tally (work units; short = 1, long = 2): **Opus 2 (T4) / Sonnet 18 (R1, R2
 | T7 | Optional integrations: Jade plugin (egg breed/hatch stage, dragon breed/age), EMI egg stacks/info, Mod Menu metadata; Carry On/culling compat via data/tag where possible | Sonnet | short/easy | T5 | T6 | done (code; runtime via T6) |
 | T8 | Lootr Remastered check: confirm via its source and a dev-client run with the Lootr jar that eggs appear in Lootr chests; integrated-loot leakage behaviour | Sonnet | short/medium | T5 | T9 | done (tag shipped; runtime check in T10) |
 | T9 | Logo (SVG/pixel art from mod textures, no AI → PNG 400×400 + banner), CurseForge description.md, summary, README | Sonnet | short/easy | T1 | anything | done (T9b text refresh done) |
-| T10 | Pack integration: build jar, launch the pack client with the jar (lead), log/mixin check, in-game smoke checklist, pack config tweaks (adventurez), copy jar to mods\ | Lead | – | T6–T8 | – | in progress (pack configs set; launch next) |
+| T10 | Pack integration: build jar, launch the pack client with the jar (lead), log/mixin check, in-game smoke checklist, pack config tweaks (adventurez), copy jar to mods\ | Lead | – | T6–T8 | – | in progress (jar in pack mods/; headless full-pack server boot + in-pack gametests) |
 | T11 | Final: review, Graphify, report, push | Lead | – | all | – | open |
