@@ -7,3 +7,10 @@
 - T2 common port | Sonnet | long | accepted: Fabric ModInitializer, immediate registration, FCAP config, SidedAccess (#259), master 9eb18b9 applied, end-egg break veto via PlayerBlockBreakEvents
 - T3 client port | Sonnet | long | started; T5 mixins/replenish/loot | Sonnet | long | started
 - T3 client port | Sonnet | long | accepted: client entrypoint, lazy per-breed models w/ reload version, vanilla ModelPart scale fields, Camera.setup TAIL mixin, F6 via consumeClick
+- T7 integrations (Jade/EMI/ModMenu/CarryOn/culling) | Sonnet | short | started
+- 2026-10-26 session handoff: T4/T5/T7 stopped mid-task; see handoff-2026-10-26-678928bc.md
+- 2026-10-26 session 2: resumed; T4 (Opus, long), T5 (Sonnet, long), T7 (Sonnet, short) re-delegated in parallel; T4 partial JSONs kept for T4 to review
+- T5 mixins/replenish/loot | Sonnet | long | diff reviewed ok (WrapOperation x2, AW portalLocation+origin, MODIFY with 8 targets + verified pack ids); build pending T4
+- T4 egg model | Opus | long | diff reviewed ok (PreparableModelLoadingPlugin + AfterBake wrap, FRAPI emit*, RenderDataBlockEntity, client re-mesh in loadAdditional); known regression: break particles use vanilla egg texture
+- T7 integrations | Sonnet | short | accepted: Jade egg/dragon providers, EMI per-breed stacks + info recipes, Mod Menu link, Carry On blacklist tags; Entity Culling is config-only
+- First full build (lead) | green: compileJava, validateAccessWidener, remapJar; mixin targets remapped to intermediary (Loom 1.17, no refmap needed)

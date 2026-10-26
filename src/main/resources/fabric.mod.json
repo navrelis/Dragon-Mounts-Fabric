@@ -13,7 +13,7 @@
     "Mojang - base game and sound assets"
   ],
   "contact": {
-    "homepage": "https://github.com/MWall541/Dragon-Mounts-Legacy",
+    "homepage": "https://github.com/navrelis/Dragon-Mounts-Fabric",
     "sources": "https://github.com/navrelis/Dragon-Mounts-Fabric",
     "issues": "https://github.com/navrelis/Dragon-Mounts-Fabric/issues"
   },
@@ -26,6 +26,12 @@
     ],
     "client": [
       "com.github.kay9.dragonmounts.fabric.DragonMountsFabricClient"
+    ],
+    "jade": [
+      "com.github.kay9.dragonmounts.compat.jade.DragonMountsJadePlugin"
+    ],
+    "emi": [
+      "com.github.kay9.dragonmounts.compat.emi.DragonMountsEmiPlugin"
     ]
   },
   "mixins": [
@@ -42,7 +48,7 @@
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.upstream": "https://github.com/MWall541/Dragon-Mounts-Legacy"
+        "modmenu.dragonmounts.upstream": "https://github.com/MWall541/Dragon-Mounts-Legacy"
       }
     }
   }

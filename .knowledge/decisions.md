@@ -11,3 +11,5 @@
 - Datagen is dropped and the generated JSON ships statically. Reason: the outputs are complete; the GLM JSONs are replaced by code.
 - Verification is Fabric gametests (headless) plus a dev client and one in-pack launch. Reason: few slow pack launches.
 - javax.annotation.Nullable (jsr305, came with NeoForge) is replaced by org.jetbrains.annotations.Nullable; reason: no new dependency, and jetbrains annotations are already on the classpath.
+- Egg breaking particles use the vanilla egg texture for every breed. Reason: Fabric API 0.116 has no per-position particle hook for baked models; accepted as a minor regression.
+- Entity Culling opt-out is config-only (`entityWhitelist` in `config/entityculling.json`). Reason: the mod has no tag/API opt-out; it's handled as a pack config tweak in T10.

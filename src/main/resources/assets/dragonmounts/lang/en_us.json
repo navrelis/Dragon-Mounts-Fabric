@@ -45,5 +45,28 @@
   "subtitles.entity.dragon.ambient": "Dragon speaks",
   "subtitles.entity.dragon.step": "Dragon stomps",
   "subtitles.entity.dragon.death": "Dragon screeches",
-  "subtitles.entity.dragon.ambient.ghost": "Dragon speaks"
+  "subtitles.entity.dragon.ambient.ghost": "Dragon speaks",
+
+  "modmenu.dragonmounts.upstream": "Original Dragon Mounts: Legacy",
+
+  "config.jade.plugin_dragonmounts": "Dragon Mounts",
+  "config.jade.plugin_dragonmounts.dragon_egg": "Dragon Egg",
+  "config.jade.plugin_dragonmounts.dragon": "Dragon",
+  "config.jade.plugin_dragonmounts.dragon.show_saddle": "Show Saddle Status",
+  "jade.dragonmounts.breed": "Breed: %s",
+  "jade.dragonmounts.egg.dormant": "Dormant (right-click to start hatching)",
+  "jade.dragonmounts.egg.hatching": "Hatching: stage %s of %s",
+  "jade.dragonmounts.stage": "Life stage: %s",
+  "jade.dragonmounts.stage.hatchling": "Hatchling",
+  "jade.dragonmounts.stage.juvenile": "Juvenile",
+  "jade.dragonmounts.stage.adult": "Adult",
+  "jade.dragonmounts.saddle": "Saddled: %s",
+  "jade.dragonmounts.saddle.yes": "Yes",
+  "jade.dragonmounts.saddle.no": "No",
+
+  "emi.info.dragonmounts.dragon_egg": "Dragon eggs can be found in the loot chests of dungeons and other generated structures. Which breed you find depends on the structure.",
+  "emi.info.dragonmounts.dragon_egg.hatch": "Place the egg down and right-click it to start hatching. It cracks a little more every now and then and finally a baby dragon emerges.",
+  "emi.info.dragonmounts.dragon_egg.habitat": "While it is not yet close to hatching, the egg adapts to its surroundings and can change its breed when the blocks and environment around it match another breed's habitat.",
+  "emi.info.dragonmounts.dragon_egg.vanilla": "Right-clicking a vanilla Dragon Egg turns it into a hatching End Dragon Egg.",
+  "emi.info.dragonmounts.spawn_egg": "Dragon spawn eggs are creative-mode items. Using one on a dragon of the same breed spawns a baby dragon."
 }
