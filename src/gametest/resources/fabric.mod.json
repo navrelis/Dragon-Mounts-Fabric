@@ -7,7 +7,7 @@
   "license": "GPL-3.0-only",
   "environment": "*",
   "entrypoints": {
-    "fabric-gametest": []
+    "fabric-gametest": ["com.github.kay9.dragonmounts.gametest.DragonMountsGameTests"]
   },
   "depends": {
     "dragonmounts": "*"

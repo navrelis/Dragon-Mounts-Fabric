@@ -17,3 +17,5 @@
 - T6 gametests + runServer smoke | Sonnet | long | started; T8 Lootr research | Sonnet | short | started (read-only); GitHub repo create/push denied by permission classifier, deferred to user
 - T8 Lootr research | Sonnet | short | accepted: MODIFY applies in Lootr chests (DefaultLootFiller live lookup); integrated loot leaks eggs ~1-3% of affected modded fills → ship lootr excluded tag (T8b)
 - T8b Lootr excluded tag + T9b description/README refresh | Sonnet | short | accepted after 1 correction (MnS → Moog's Nether Structures)
+- T6 gametests | Sonnet | long | accepted: 16/16 pass (lead re-ran), incl. loot rates, hatching all breeds, tame/saddle, replenish via real EndDragonFight, vanilla-egg conversion; runServer reached Done with no mixin errors
+- T10a pack config | Sonnet | short | accepted: adventurez allow_dragon_hatching=false; entityculling entity+tick whitelist dragonmounts:dragon (uncommitted in pack repo)
