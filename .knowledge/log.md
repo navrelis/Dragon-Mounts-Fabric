@@ -30,3 +30,4 @@
 - T9c true pixel-art logo/banner/icon | Opus | long | accepted: 80x80x5 logo, 240x80x5 banner, 64x64x2 icon, 29-colour palette, verified block-uniform + binary alpha (lead re-ran build)
 - T6c rerun (lead) | in full pack: 17/17 of ours pass (replenish tests made BEI-robust); only failure is Porting Lib's bundled Tests.test (foreign)
 - T11 final (lead) | report.md written; graph updated; everything committed; push pending owner approval
+- Repo cleanup (lead): description banner → GitHub raw URL, .gitignore for local Graphify files; branch renamed to mc/1.21.1 with path-scrubbed history; repo made public (owner approved)

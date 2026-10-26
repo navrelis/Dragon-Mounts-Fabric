@@ -34,7 +34,7 @@ A native Fabric 1.21.1 port of Dragon Mounts: Legacy (upstream https://github.co
 - **Privacy:** never the owner's real name.
 - **Logo:** no AI image generation. Hand-built SVG/pixel art, rendered to PNG, built from the mod's own textures.
 - **Texts:** CurseForge description (Markdown) and summary (<100 chars), in English.
-- **Git:** new private repo `navrelis/Dragon-Mounts-Fabric`, branch `port/fabric-1.21.1` (not main). No CurseForge upload.
+- **Git:** repo `navrelis/Dragon-Mounts-Fabric`, default branch `mc/1.21.1` (owner convention, like EMIRemastered). Made **public** on 2026-10-26 at the owner's request so the CurseForge banner can load from GitHub. No CurseForge upload.
 - **Install:** at the end, copy the built jar into the pack's `mods\`. Small pack config tweaks are allowed where needed for compatibility (owner: "whatever is needed"). They stay uncommitted in the pack repo and get reported.
 
 ## Owner rules carried over from the pack

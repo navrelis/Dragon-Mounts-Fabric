@@ -1,4 +1,4 @@
-![Dragon Mounts Fabric](BANNER_URL)
+![Dragon Mounts Fabric](https://raw.githubusercontent.com/navrelis/Dragon-Mounts-Fabric/mc/1.21.1/branding/banner.png)
 
 **Hatch dragon eggs, raise the hatchlings, and fly on their backs - now natively on Fabric 1.21.1.**
 

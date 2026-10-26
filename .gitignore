@@ -21,3 +21,13 @@ bin/
 run/
 remappedSrc/
 logs/
+
+# Graphify local files
+graphify-out/.graphify_python
+graphify-out/.graphify_root
+graphify-out/graph.html
+graphify-out/cache/
+src/graphify-out/
+
+# session handoffs
+handoff-*.md

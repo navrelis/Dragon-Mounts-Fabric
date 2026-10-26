@@ -1,6 +1,6 @@
 # Final report: Dragon Mounts Fabric (Unofficial Port) 1.21.1-1.0.0
 
-Branch `port/fabric-1.21.1`. Native Fabric 1.21.1 port of Dragon Mounts: Legacy (upstream `neoforge` branch plus 2 master fixes). Not pushed: creating the private GitHub repo was blocked by the permission check and needs the owner's OK.
+Branch `mc/1.21.1` (default) on the public repo https://github.com/navrelis/Dragon-Mounts-Fabric. Native Fabric 1.21.1 port of Dragon Mounts: Legacy (upstream `neoforge` branch plus 2 master fixes).
 
 ## Deliverables
 - **Jar:** `build/libs/dragonmounts-fabric-1.21.1-1.0.0.jar`. The same jar is installed in the pack's `mods\`.
@@ -92,6 +92,6 @@ See `decisions.md`. In short:
 - **Upstream TODOs remain:**
   - `DragonAnimator:252` (attack animation);
   - `TameableDragon:165` (AI).
-- **GitHub links:** the description and README link to `github.com/navrelis/Dragon-Mounts-Fabric`. While that repo is private (or not created), those links 404 for the public. Make it public at release, or remove the links. Note that GPLv3 requires offering the source anyway.
+- **GitHub:** the repo is public; the description banner loads from `raw.githubusercontent.com/.../mc/1.21.1/branding/banner.png`.
 - **In-pack test server:** to rerun the full-pack game tests, use the scratch setup described above. The pack's own Fabric API lacks the gametest module, which is expected.
-- **Leftover file:** `handoff-2026-10-26-678928bc.md` in the project root is the old session handoff. It is not committed and can be deleted.
+- Old branch `port/fabric-1.21.1` was replaced by `mc/1.21.1` (history rewritten once to drop a local user path from `.knowledge`, no force-push).
