@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.github.kay9.dragonmounts.mixins",
+  "minVersion": "0.8.5",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EnsureSafeFlyingVehicleMixin",
+    "ReplenishDragonEggMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

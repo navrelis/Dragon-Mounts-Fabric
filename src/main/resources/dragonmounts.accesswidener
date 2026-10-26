@@ -1,0 +1,5 @@
+accessWidener v2 named
+accessible field net/minecraft/world/entity/LivingEntity jumping Z
+accessible method net/minecraft/client/Camera move (FFF)V
+accessible method net/minecraft/client/Camera getMaxZoom (F)F
+accessible method net/minecraft/client/renderer/block/model/ItemOverrides <init> ()V

@@ -1,0 +1,13 @@
+# Decisions
+- Port base is the upstream `neoforge` branch (MC 1.21.1, Mojmap); master commits 9eb18b9 and 3c4c74e are applied by hand. Reason: it matches the target version, and master is Forge 1.21.
+- Toolchain is Loom 1.17.x + Gradle 9.5.0. Reason: only JDK 21 is installed, and Loom 1.18+ needs JDK 25. The owner's TickMender uses the same setup.
+- Config uses Forge Config API Port (NeoForge `ModConfigSpec`). Reason: it is already in the pack, and upstream's config code and TOML stay unchanged.
+- `ModelPartMixin`/`ModelPartAccess` are dropped in favour of the vanilla public `ModelPart.xScale/yScale/zScale`. Reason: they are redundant on 1.21.1, and Sodium overwrites `translateAndRotate`.
+- Camera offsets come from an `@Inject` at TAIL of `Camera.setup`, with AW for `move`/`getMaxZoom`. Reason: same semantics as the upstream ViewportEvent, and TAIL injects stack safely with CameraOverhaul, Sporran and Punchy.
+- Egg replenish uses a wrap around the `setDragonKilled` call in `EnderDragon.tickDeath`. It places an egg on the exit portal if none is there. Reason: YUNG's Better End Island cancels vanilla `setDragonKilled`, so a mixin inside it never runs. This also prevents double eggs.
+- The vanilla egg is converted through `UseBlockCallback`, which runs before AdventureZ's `useWithoutItem` HEAD inject. The pack's `adventurez.json5` `allow_dragon_hatching` is also set to false. Reason: owner wants our mod to own the egg.
+- Egg loot uses `LootTableEvents.MODIFY` (v3). Each breed target lists vanilla plus pack replacement tables (YUNG's etc.) under the upstream config key, and `use_loot_tables` defaults to true. Reason: no GLM on Fabric, YUNG's bypasses vanilla tables, and the owner wants egg loot.
+- Egg block model uses Fabric Model Loading API + `FabricBakedModel` (Opus task). Reason: chunk-meshed like upstream and works with Sodium's FRAPI.
+- Datagen is dropped and the generated JSON ships statically. Reason: the outputs are complete; the GLM JSONs are replaced by code.
+- Verification is Fabric gametests (headless) plus a dev client and one in-pack launch. Reason: few slow pack launches.
+- javax.annotation.Nullable (jsr305, came with NeoForge) is replaced by org.jetbrains.annotations.Nullable; reason: no new dependency, and jetbrains annotations are already on the classpath.

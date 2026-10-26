@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "dragonmounts",
+  "version": "${version}",
+  "name": "Dragon Mounts Fabric (Unofficial Port)",
+  "description": "Unofficial Fabric port of Dragon Mounts: Legacy - hatch dragon eggs, raise, tame and ride dragons.",
+  "authors": [
+    "Kay9 (original Dragon Mounts: Legacy)",
+    "navrelis (Fabric port)"
+  ],
+  "contributors": [
+    "ata4/barracuda - original Dragon Mounts project and idea",
+    "Mojang - base game and sound assets"
+  ],
+  "contact": {
+    "homepage": "https://github.com/MWall541/Dragon-Mounts-Legacy",
+    "sources": "https://github.com/navrelis/Dragon-Mounts-Fabric",
+    "issues": "https://github.com/navrelis/Dragon-Mounts-Fabric/issues"
+  },
+  "license": "GPL-3.0-only",
+  "icon": "assets/dragonmounts/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.kay9.dragonmounts.fabric.DragonMountsFabric"
+    ],
+    "client": [
+      "com.github.kay9.dragonmounts.fabric.DragonMountsFabricClient"
+    ]
+  },
+  "mixins": [
+    "dragonmounts.mixins.json"
+  ],
+  "accessWidener": "dragonmounts.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*",
+    "forgeconfigapiport": ">=21.1.0"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.upstream": "https://github.com/MWall541/Dragon-Mounts-Legacy"
+      }
+    }
+  }
+}
