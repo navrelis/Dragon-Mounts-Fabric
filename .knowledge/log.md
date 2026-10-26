@@ -28,3 +28,4 @@
 - Graphify graph built (code-only AST over src/, 953 nodes, 50 communities) and committed
 - T6c in-pack gametests | Sonnet | long | done: pack's Fabric API lacks fabric-gametest-api-v1 (added to scratch), Xaero/FTB Ranks+Essentials/OPAC disabled in scratch (GameTestServer incompatibility), porting_lib test structure stub; 15/17 pass, 2 replenish tests fail because YUNG's BEI relocates the exit portal to (0,65,0) → tests being made BEI-robust (union of origin + portalLocation columns, exactly 1 egg)
 - T9c true pixel-art logo/banner/icon | Opus | long | accepted: 80x80x5 logo, 240x80x5 banner, 64x64x2 icon, 29-colour palette, verified block-uniform + binary alpha (lead re-ran build)
+- T6c rerun (lead) | in full pack: 17/17 of ours pass (replenish tests made BEI-robust); only failure is Porting Lib's bundled Tests.test (foreign)

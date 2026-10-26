@@ -32,6 +32,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -508,6 +509,32 @@ public class DragonMountsGameTests implements FabricGameTest
     }
 
     /**
+     * Finds every dragon egg (vanilla or ours) in the union of the origin podium column and the column of the fight's exit portal.
+     * Mods like YUNG's Better End Island move the exit portal to a world-fixed position and place their own egg there,
+     * so both columns have to be considered. The columns are deduplicated if they are the same.
+     */
+    private static List<BlockPos> findEggs(ServerLevel level, BlockPos origin, EndDragonFight fight)
+    {
+        Set<Long> columns = new HashSet<>();
+        List<BlockPos> found = new ArrayList<>();
+        BlockPos podium = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, EndPodiumFeature.getLocation(origin));
+        List<BlockPos> candidates = new ArrayList<>();
+        candidates.add(podium);
+        if (fight.portalLocation != null) candidates.add(fight.portalLocation);
+        for (BlockPos column : candidates)
+        {
+            if (!columns.add(ChunkPos.asLong(column.getX(), column.getZ()))) continue;
+            for (int y = level.getMinBuildHeight(); y < level.getMaxBuildHeight(); y++)
+            {
+                BlockPos pos = new BlockPos(column.getX(), y, column.getZ());
+                BlockState state = level.getBlockState(pos);
+                if (state.is(Blocks.DRAGON_EGG) || state.is(DMLRegistry.EGG_BLOCK.get())) found.add(pos);
+            }
+        }
+        return found;
+    }
+
+    /**
      * Builds a real {@link EndDragonFight} in the test level (it only needs a ServerLevel), marks the dragon as previously killed
      * so vanilla does NOT place an egg itself, and runs the dragon's final death tick (dragonDeathTime == 200 calls
      * EndDragonFight#setDragonKilled, which the mixin wraps). Returns the fight.
@@ -551,9 +578,8 @@ public class DragonMountsGameTests implements FabricGameTest
 
         check(fight.portalLocation != null, "Fight did not create an exit portal (setDragonKilled was not reached?)");
         ServerLevel level = helper.getLevel();
-        BlockPos eggPos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, EndPodiumFeature.getLocation(origin));
-        int eggs = countVanillaEggsInColumn(level, eggPos);
-        check(eggs == 1, "Expected exactly one vanilla dragon egg on the podium column, found " + eggs);
+        List<BlockPos> eggs = findEggs(level, origin, fight);
+        check(eggs.size() == 1, "Expected exactly one dragon egg in the podium / exit portal columns, found " + eggs.size() + " at " + eggs + " (portalLocation=" + fight.portalLocation + ")");
         helper.succeed();
     }
 
@@ -568,9 +594,8 @@ public class DragonMountsGameTests implements FabricGameTest
 
         check(fight.portalLocation != null, "Fight did not create an exit portal (setDragonKilled was not reached via kill()?)");
         ServerLevel level = helper.getLevel();
-        BlockPos eggPos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, EndPodiumFeature.getLocation(origin));
-        int eggs = countVanillaEggsInColumn(level, eggPos);
-        check(eggs == 1, "Expected exactly one vanilla dragon egg on the podium column after kill(), found " + eggs);
+        List<BlockPos> eggs = findEggs(level, origin, fight);
+        check(eggs.size() == 1, "Expected exactly one dragon egg in the podium / exit portal columns after kill(), found " + eggs.size() + " at " + eggs + " (portalLocation=" + fight.portalLocation + ")");
         helper.succeed();
     }
 
@@ -586,6 +611,8 @@ public class DragonMountsGameTests implements FabricGameTest
         {
             EndDragonFight fight = runDragonDeath(helper, origin);
             check(fight.portalLocation != null, "Fight did not create an exit portal (setDragonKilled was not reached?)");
+            // Only the origin podium column is checked: with a mod like YUNG's Better End Island installed, that mod may place its own egg
+            // at its world-fixed exit portal regardless of our config, but it never uses the test's origin column.
             BlockPos eggPos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, EndPodiumFeature.getLocation(origin));
             check(countVanillaEggsInColumn(level, eggPos) == 0, "No egg should be placed when replenish_eggs is false");
         }
