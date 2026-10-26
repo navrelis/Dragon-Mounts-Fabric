@@ -13,3 +13,4 @@
 - javax.annotation.Nullable (jsr305, came with NeoForge) is replaced by org.jetbrains.annotations.Nullable; reason: no new dependency, and jetbrains annotations are already on the classpath.
 - Egg breaking particles use the vanilla egg texture for every breed. Reason: Fabric API 0.116 has no per-position particle hook for baked models; accepted as a minor regression.
 - Entity Culling opt-out is config-only (`entityWhitelist` in `config/entityculling.json`). Reason: the mod has no tag/API opt-out; it's handled as a pack config tweak in T10.
+- Eggs are kept out of Lootr integrated loot by shipping the item tag `lootr:integrated_loot/excluded` (contains `dragonmounts:dragon_egg`), not by `item_bans`. Reason: integrated loot samples rolled vanilla tables into unrelated modded chests (wrong-breed eggs); item_bans would also strip eggs from their own tables and saved inventories. Lootr rolls the live registry table, so MODIFY pools apply.

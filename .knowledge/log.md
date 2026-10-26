@@ -14,3 +14,6 @@
 - T4 egg model | Opus | long | diff reviewed ok (PreparableModelLoadingPlugin + AfterBake wrap, FRAPI emit*, RenderDataBlockEntity, client re-mesh in loadAdditional); known regression: break particles use vanilla egg texture
 - T7 integrations | Sonnet | short | accepted: Jade egg/dragon providers, EMI per-breed stacks + info recipes, Mod Menu link, Carry On blacklist tags; Entity Culling is config-only
 - First full build (lead) | green: compileJava, validateAccessWidener, remapJar; mixin targets remapped to intermediary (Loom 1.17, no refmap needed)
+- T6 gametests + runServer smoke | Sonnet | long | started; T8 Lootr research | Sonnet | short | started (read-only); GitHub repo create/push denied by permission classifier, deferred to user
+- T8 Lootr research | Sonnet | short | accepted: MODIFY applies in Lootr chests (DefaultLootFiller live lookup); integrated loot leaks eggs ~1-3% of affected modded fills → ship lootr excluded tag (T8b)
+- T8b Lootr excluded tag + T9b description/README refresh | Sonnet | short | accepted after 1 correction (MnS → Moog's Nether Structures)

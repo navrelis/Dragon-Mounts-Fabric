@@ -6,16 +6,16 @@ Hatch dragon eggs, raise the hatchlings, and fly on their backs - a **native Fab
 
 > **Unofficial.** This port is not affiliated with or endorsed by the upstream authors. Please report bugs of this port in *this* repository's issue tracker, not upstream.
 
-Port by **navrelis**. Mod id: `dragonmounts`.
+Port by **navrelis**. Mod id: `dragonmounts`. Source and issues: [github.com/navrelis/Dragon-Mounts-Fabric](https://github.com/navrelis/Dragon-Mounts-Fabric) ([issue tracker](https://github.com/navrelis/Dragon-Mounts-Fabric/issues)).
 
 ## Features
 
-- **Eggs & hatching** - placeable dragon eggs that hatch over several stages. The vanilla Dragon Egg becomes a hatchable End dragon egg, and an egg replenishes after every Ender Dragon kill.
+- **Eggs & hatching** - placeable dragon eggs that hatch over several stages. Right-clicking the vanilla Dragon Egg turns it into a hatchable End dragon egg, and an egg is placed on the exit portal after every Ender Dragon kill (only if there isn't one already, so no duplicates with mods like YUNG's Better End Island).
 - **8 breeds** - Aether, End, Fire, Forest, Ghost, Ice, Nether and Water. A hatching egg adapts to its surroundings ("habitats") and can change breed.
 - **Taming & riding** - tame with fish, saddle up and fly (jump = ascend, Z = descend, F6 = toggle camera-driven flight). Shears remove the saddle; bone or sneak + use makes the dragon sit.
 - **Breeding & cross-breeding** - feed two tamed adults to get an egg; datapacks can define cross-breeding results.
 - **Breed abilities** - Fire, Forest, Ghost, Ice and Water dragons change the blocks they walk on.
-- **Loot** - optional dragon eggs in structure chests (also in popular structure mods such as YUNG's; works with Lootr).
+- **Loot** - dragon eggs in structure chests, on by default (`use_loot_tables`) with configurable chances: Aether in dungeons, Fire in desert pyramids, Forest in jungle temples, Ghost in woodland mansions and abandoned mineshafts, Ice in igloos, Nether in bastion treasure rooms, Water in buried treasure. The replacement chests of YUNG's Better Dungeons / Desert Temples / Jungle Temples / Ocean Monuments, Repurposed Structures, Beach Party and Moog's Nether Structures are covered too.
 - **Data-driven** - add breeds with `data/<namespace>/dragonmounts/dragon_breeds/*.json` and cross-breeding with `data/<namespace>/dragonmounts/cross_breeding/*.json`.
 - **Config** - `config/dragonmounts-common.toml` and `config/dragonmounts-client.toml`.
 
@@ -28,7 +28,19 @@ The full player-facing description lives in [`branding/description.md`](branding
 - [Fabric API](https://modrinth.com/mod/fabric-api)
 - Forge Config API Port
 
-Optional: Jade, EMI, Mod Menu. Works with Sodium, Iris and Lootr.
+No Sinytra Connector or Sporran needed - this is a native Fabric port. Works with Sodium and Iris.
+
+## Integrations
+
+All optional:
+
+- **Jade** - egg breed and hatch stage; dragon breed, life stage and saddle status.
+- **EMI** - an egg and a spawn egg entry per breed, plus info pages.
+- **Mod Menu** - mod entry with icon.
+- **Carry On** - dragons and dragon eggs can't be picked up.
+- **Lootr** - eggs appear per player in Lootr chests and are excluded from Lootr's integrated loot, so they don't leak into unrelated chests.
+
+**AdventureZ:** if AdventureZ is installed, Dragon Mounts takes over the vanilla Dragon Egg's right-click. Set `allow_dragon_hatching` to `false` in `config/adventurez.json5` to avoid both systems reacting.
 
 ## Building
 
