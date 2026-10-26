@@ -4,6 +4,7 @@ import com.github.kay9.dragonmounts.DMLRegistry;
 import com.github.kay9.dragonmounts.dragon.DragonBreed;
 import com.github.kay9.dragonmounts.dragon.TameableDragon;
 import com.github.kay9.dragonmounts.dragon.egg.habitats.Habitat;
+import net.fabricmc.fabric.api.blockview.v2.RenderDataBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -23,7 +24,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class HatchableEggBlockEntity extends BlockEntity implements Nameable
+public class HatchableEggBlockEntity extends BlockEntity implements Nameable, RenderDataBlockEntity
 {
     public static final String NBT_BREED = TameableDragon.NBT_BREED;
     public static final String NBT_NAME = "CustomName";
@@ -71,6 +72,7 @@ public class HatchableEggBlockEntity extends BlockEntity implements Nameable
     {
         super.loadAdditional(tag, lookup);
 
+        var previousBreed = breed;
         Holder.Reference<DragonBreed> parsedBreed = DragonBreed.parse(tag.getString(NBT_BREED), lookup);
         if (parsedBreed != null)
             setBreed(parsedBreed);
@@ -81,6 +83,11 @@ public class HatchableEggBlockEntity extends BlockEntity implements Nameable
         var transitioner = tag.getCompound(TransitionHandler.NBT_TRANSITIONER);
         if (!transitioner.isEmpty())
             getTransition().load(transitioner, lookup);
+
+        // client: synced BE data (block entity data packet) changed the breed -> re-mesh so the egg model follows.
+        // On the client, Level.sendBlockUpdated only marks the render section dirty (UPDATE_IMMEDIATE = rebuild now).
+        if (level != null && level.isClientSide() && breed != previousBreed)
+            level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), Block.UPDATE_IMMEDIATE);
     }
 
     // for destroying block to item
@@ -116,6 +123,17 @@ public class HatchableEggBlockEntity extends BlockEntity implements Nameable
     public Packet<ClientGamePacketListener> getUpdatePacket()
     {
         return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    /**
+     * Fabric render data, read by the egg block model while meshing chunks
+     * ({@code FabricBlockView#getBlockEntityRenderData}): the breed's registered name, or {@code null}.
+     */
+    @Nullable
+    @Override
+    public Object getRenderData()
+    {
+        return breed == null ? null : breed.getRegisteredName();
     }
 
     public DragonBreed getBreed()
