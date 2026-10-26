@@ -22,3 +22,9 @@
 - T10 pack: jar copied to pack mods/; owner vetoed desktop control → headless harness server boot started; T5c kill() replenish wrap (Sonnet, short) and T6b remapped gametest jar (Sonnet, short) started
 - T5c kill() replenish wrap | Sonnet | short | accepted: second @WrapOperation on kill()V + gametest; 17/17 pass
 - T6b remapGametestJar task | Sonnet | short | accepted: build/libs/*-gametest.jar (intermediary), not part of build
+- T10 headless full-pack server boot (Sporran harness, own scratch/port) | lead | PASS: all dims ticked, no dragonmounts/mixin errors
+- T6c in-pack gametests | Sonnet | long | started (first lead attempt stopped silently after init)
+- T9c true pixel-art logo | Opus | long | started (owner: "newly made in true pixelart")
+- Graphify graph built (code-only AST over src/, 953 nodes, 50 communities) and committed
+- T6c in-pack gametests | Sonnet | long | done: pack's Fabric API lacks fabric-gametest-api-v1 (added to scratch), Xaero/FTB Ranks+Essentials/OPAC disabled in scratch (GameTestServer incompatibility), porting_lib test structure stub; 15/17 pass, 2 replenish tests fail because YUNG's BEI relocates the exit portal to (0,65,0) → tests being made BEI-robust (union of origin + portalLocation columns, exactly 1 egg)
+- T9c true pixel-art logo/banner/icon | Opus | long | accepted: 80x80x5 logo, 240x80x5 banner, 64x64x2 icon, 29-colour palette, verified block-uniform + binary alpha (lead re-ran build)

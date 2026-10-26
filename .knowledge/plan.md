@@ -2,7 +2,7 @@
 Reference material: `.knowledge/ref/upstream-map.md` (file map and NeoForge→Fabric mapping), `ref/research-versions-compat.md` (versions and pack compatibility), `ref/loot_all.txt` (pack chest loot ids).
 Upstream clone: the session scratchpad `upstream/` (branch `neoforge`). If it is gone, re-clone it.
 
-Usage tally (work units; short = 1, long = 2): **Opus 2 (T4) / Sonnet 18 (R1, R2, T1, T9, T2, T3, T5, T7, T8, T8b/T9b, T6, T10a)** ≈ 10 % Opus. Target: Opus ≤ 50 %.
+Usage tally (work units; short = 1, long = 2): **Sonnet 23 (… + T5c, T6b, T6c in-pack gametest debug ×2, T10a)** · Opus 4 (T4, T9c logo) ≈ 15 % Opus. Target: Opus ≤ 50 %.
 
 | ID | Task | Model | Size/Diff | Depends | Parallel with | Status |
 |---|---|---|---|---|---|---|
@@ -17,3 +17,5 @@ Usage tally (work units; short = 1, long = 2): **Opus 2 (T4) / Sonnet 18 (R1, R2
 | T9 | Logo (SVG/pixel art from mod textures, no AI → PNG 400×400 + banner), CurseForge description.md, summary, README | Sonnet | short/easy | T1 | anything | done (T9b text refresh done) |
 | T10 | Pack integration: build jar, launch the pack client with the jar (lead), log/mixin check, in-game smoke checklist, pack config tweaks (adventurez), copy jar to mods\ | Lead | – | T6–T8 | – | in progress (jar in pack mods/; headless full-pack server boot + in-pack gametests) |
 | T11 | Final: review, Graphify, report, push | Lead | – | all | – | open |
+| T9c | New logo/banner/icon in true pixel art (integer grid, no gradients/AA, hand-placed, no AI) — owner request | Opus | long/hard (visual quality) | – | T6c | done |
+| T6c | Run our gametests inside the full pack (headless scratch server) | Sonnet | long/medium | T6b | T9c | done |
