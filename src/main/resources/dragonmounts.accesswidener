@@ -3,3 +3,5 @@ accessible field net/minecraft/world/entity/LivingEntity jumping Z
 accessible method net/minecraft/client/Camera move (FFF)V
 accessible method net/minecraft/client/Camera getMaxZoom (F)F
 accessible method net/minecraft/client/renderer/block/model/ItemOverrides <init> ()V
+accessible field net/minecraft/world/level/dimension/end/EndDragonFight portalLocation Lnet/minecraft/core/BlockPos;
+accessible field net/minecraft/world/level/dimension/end/EndDragonFight origin Lnet/minecraft/core/BlockPos;

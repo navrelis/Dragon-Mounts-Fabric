@@ -70,17 +70,17 @@ public class DMLConfig
                         "Useful to help with mod compatibility")
                 .define("allow_egg_override", true);
         REPLENISH_EGGS = configurator.comment(
-                        "Should Ender Dragon Eggs replenish on the exit portal after a respawned dragon is defeated?",
+                        "Should an Ender Dragon Egg be placed on the exit portal after every Ender Dragon kill, if there isn't one there already?",
                         "Useful for multiplayer scenarios.",
-                        "NOTE: This may break with mods that add content in the end. (A big example is YUNG's better end islands)",
-                        "You should see if those mods have ways to replenish dragon eggs themselves.")
+                        "Mods that place their own dragon egg (like YUNG's better end island) are detected, so no duplicate eggs should appear.")
                 .define("replenish_eggs", true);
         USE_LOOT_TABLES = configurator.comment(
                         "Should dragon eggs generate in treasure chest loot tables?",
-                        "Useful for multiplayer scenarios and offering alternative ways to obtain eggs.",
+                        "Useful for multiplayer scenarios and offering alternative ways to obtain eggs. (Enabled by default.)",
+                        "Structure overhaul mods that replace vanilla chest loot tables (e.g. YUNG's, Repurposed Structures) share the chance of the vanilla table they replace.",
                         "Egg chance values can be modified below. If you'd like to change the loot tables the eggs appear",
                         "in, consider using a datapack, since the static nature of configs complicates things.")
-                .define("use_loot_tables", false);
+                .define("use_loot_tables", true);
         UPDATE_HABITATS = configurator.comment("Should Dragon Eggs adapt to their environments and change breeds?")
                 .define("update_habitats", true);
 

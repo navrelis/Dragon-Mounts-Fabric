@@ -8,7 +8,14 @@ import com.github.kay9.dragonmounts.dragon.DragonBreed;
 import com.github.kay9.dragonmounts.dragon.TameableDragon;
 import com.github.kay9.dragonmounts.dragon.egg.HatchableEggBlock;
 import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
+import com.github.kay9.dragonmounts.data.loot.DragonEggLootTargets;
+import com.github.kay9.dragonmounts.data.loot.conditions.RandomChanceByConfig;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -77,6 +84,28 @@ public class DragonMountsFabric implements ModInitializer
 
     private void registerLoot()
     {
-        // T5: register the LootTableEvents.MODIFY callback for DragonEggLootTargets.BUILT_IN here.
+        // Replaces the NeoForge global loot modifiers (one per built-in target).
+        // The chance is read from the config when the table is rolled, see RandomChanceByConfig.
+        // Applies to every source (vanilla, mods, datapacks, replaced tables)
+        LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) ->
+        {
+            for (var target : DragonEggLootTargets.BUILT_IN)
+            {
+                if (!target.matches(key.location())) continue;
+
+                var breed = registries.lookup(DragonBreed.REGISTRY_KEY).flatMap(lookup -> lookup.get(target.breed()));
+                if (breed.isEmpty())
+                {
+                    DragonMountsLegacy.LOG.warn("Skipping {} egg in loot table {}: breed is not registered.", target.breed().location(), key.location());
+                    continue;
+                }
+
+                tableBuilder.withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .when(RandomChanceByConfig.randomChanceByConfig(target.configKey()))
+                        .add(LootItem.lootTableItem(DMLRegistry.EGG_BLOCK_ITEM.get())
+                                .apply(SetComponentsFunction.setComponent(DMLRegistry.DRAGON_BREED_COMPONENT.get(), breed.get()))));
+            }
+        });
     }
 }

@@ -20,6 +20,11 @@ public class RandomChanceByConfig implements LootItemCondition
         this.configTargetID = forTarget;
     }
 
+    public static LootItemCondition.Builder randomChanceByConfig(String forTarget)
+    {
+        return () -> new RandomChanceByConfig(forTarget);
+    }
+
     @Override
     public LootItemConditionType getType()
     {
@@ -29,6 +34,7 @@ public class RandomChanceByConfig implements LootItemCondition
     @Override
     public boolean test(LootContext lootContext)
     {
+        // Fabric port: checked at roll time instead of when the loot tables are modified, since the config may load after the data
         if (!DMLConfig.useLootTables()) return false;
 
         // non-existing config targets fail silently with probability -1f
