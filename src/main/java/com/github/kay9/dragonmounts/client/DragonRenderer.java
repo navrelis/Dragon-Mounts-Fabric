@@ -4,7 +4,6 @@ import com.github.kay9.dragonmounts.DragonMountsLegacy;
 import com.github.kay9.dragonmounts.data.model.DragonModelPropertiesListener;
 import com.github.kay9.dragonmounts.dragon.DragonBreed;
 import com.github.kay9.dragonmounts.dragon.TameableDragon;
-import com.google.common.collect.ImmutableMap;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexFormat;
@@ -36,7 +35,9 @@ public class DragonRenderer extends MobRenderer<TameableDragon, DragonModel>
     private static final int LAYER_SADDLE = 2;
 
     private final DragonModel defaultModel;
-    private final Map<ResourceLocation, DragonModel> modelCache;
+    // Fabric port: per-breed models are baked lazily on first use (see getModel) instead of from registered layer definitions.
+    private final Map<ResourceLocation, DragonModel> modelCache = new HashMap<>(4);
+    private int modelCacheVersion = DragonModelPropertiesListener.INSTANCE.getVersion();
     private final Map<ResourceLocation, ResourceLocation[]> textureCache = new HashMap<>(8);
 
     public DragonRenderer(EntityRendererProvider.Context modelBakery)
@@ -44,7 +45,6 @@ public class DragonRenderer extends MobRenderer<TameableDragon, DragonModel>
         super(modelBakery, new DragonModel(modelBakery.bakeLayer(MODEL_LOCATION)), 2);
 
         this.defaultModel = model;
-        this.modelCache = bakeModels(modelBakery);
 
         addLayer(GLOW_LAYER);
         addLayer(SADDLE_LAYER);
@@ -70,9 +70,23 @@ public class DragonRenderer extends MobRenderer<TameableDragon, DragonModel>
         var breed = dragon.getBreedHolder();
         if (breed == null) return defaultModel;
 
-        var selected = modelCache.get(breed.unwrapKey().get().location());
-        if (selected == null) return defaultModel;
+        // drop models baked from outdated properties after a resource reload
+        var version = DragonModelPropertiesListener.INSTANCE.getVersion();
+        if (version != modelCacheVersion)
+        {
+            modelCache.clear();
+            modelCacheVersion = version;
+        }
 
+        var breedId = breed.unwrapKey().get().location();
+        var selected = modelCache.get(breedId);
+        if (selected != null) return selected;
+
+        var properties = DragonModelPropertiesListener.INSTANCE.getProperties(breedId);
+        if (properties == null) return defaultModel; // no properties file for this breed: standard model
+
+        selected = new DragonModel(DragonModel.createBodyLayer(properties).bakeRoot());
+        modelCache.put(breedId, selected);
         return selected;
     }
 
@@ -118,14 +132,6 @@ public class DragonRenderer extends MobRenderer<TameableDragon, DragonModel>
     protected float getFlipDegrees(TameableDragon pLivingEntity)
     {
         return 0;
-    }
-
-    private Map<ResourceLocation, DragonModel> bakeModels(EntityRendererProvider.Context bakery)
-    {
-        var builder = ImmutableMap.<ResourceLocation, DragonModel>builder();
-        for (var entry : DragonModelPropertiesListener.INSTANCE.pollDefinitions().entrySet())
-            builder.put(entry.getKey(), new DragonModel(bakery.bakeLayer(entry.getValue())));
-        return builder.build();
     }
 
     private static ResourceLocation[] computeTextureCacheFor(ResourceLocation breedId)

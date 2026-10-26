@@ -30,16 +30,18 @@ public class KeyMappings
         registrar.accept(CAMERA_CONTROLS);
     }
 
-    public static void handleKeyPress(int key, int action)
+    // Fabric port: replaces the raw-key handleKeyPress(int, int); called from the client tick by DragonMountsFabricClient.
+    // The KeyMapping is consumed every tick so presses made while not riding a dragon don't pile up.
+    public static void handleCameraControlsKey()
     {
-        LocalPlayer player = Minecraft.getInstance().player;
-        if (key == CAMERA_CONTROLS.getKey().getValue()
-                && action == GLFW.GLFW_PRESS
-                && player != null
-                && player.getVehicle() instanceof TameableDragon d)
+        while (CAMERA_CONTROLS.consumeClick())
         {
-            DMLConfig.CAMERA_DRIVEN_FLIGHT.set(!DMLConfig.cameraDrivenFlight());
-            player.displayClientMessage(Component.translatable("mount.dragon.camera_controls." + (DMLConfig.cameraDrivenFlight()? "enabled" : "disabled"), d.getDisplayName()), true);
+            LocalPlayer player = Minecraft.getInstance().player;
+            if (player != null && player.getVehicle() instanceof TameableDragon d)
+            {
+                DMLConfig.CAMERA_DRIVEN_FLIGHT.set(!DMLConfig.cameraDrivenFlight());
+                player.displayClientMessage(Component.translatable("mount.dragon.camera_controls." + (DMLConfig.cameraDrivenFlight()? "enabled" : "disabled"), d.getDisplayName()), true);
+            }
         }
     }
 }

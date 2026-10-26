@@ -1,6 +1,5 @@
 package com.github.kay9.dragonmounts.client;
 
-import com.github.kay9.dragonmounts.accessors.ModelPartAccess;
 import com.github.kay9.dragonmounts.dragon.TameableDragon;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -361,8 +360,8 @@ public class DragonModel extends EntityModel<TameableDragon>
     protected void renderHead(PoseStack ps, VertexConsumer vertices, int packedLight, int packedOverlay, int pColor)
     {
         float headScale = 1.4f / (size + 0.4f);
-        //noinspection DataFlowIssue
-        ((ModelPartAccess) (Object) head).setRenderScale(headScale, headScale, headScale);
+        // Fabric port: vanilla ModelPart exposes its render scale directly (replaces ModelPartAccess mixin)
+        head.xScale = head.yScale = head.zScale = headScale;
         head.render(ps, vertices, packedLight, packedOverlay, pColor);
     }
 

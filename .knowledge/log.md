@@ -5,3 +5,5 @@
 - T9 logo/banner/description/summary | Sonnet | short | accepted (pixel-art, no AI); description needs port facts (loot default, repo link) later
 - T2 common port | Sonnet | long | started; T4 egg model | Opus | long | started
 - T2 common port | Sonnet | long | accepted: Fabric ModInitializer, immediate registration, FCAP config, SidedAccess (#259), master 9eb18b9 applied, end-egg break veto via PlayerBlockBreakEvents
+- T3 client port | Sonnet | long | started; T5 mixins/replenish/loot | Sonnet | long | started
+- T3 client port | Sonnet | long | accepted: client entrypoint, lazy per-breed models w/ reload version, vanilla ModelPart scale fields, Camera.setup TAIL mixin, F6 via consumeClick

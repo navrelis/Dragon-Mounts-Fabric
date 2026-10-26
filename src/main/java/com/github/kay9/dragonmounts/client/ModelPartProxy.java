@@ -1,6 +1,5 @@
 package com.github.kay9.dragonmounts.client;
 
-import com.github.kay9.dragonmounts.accessors.ModelPartAccess;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.geom.ModelPart;
@@ -83,11 +82,10 @@ public class ModelPartProxy
         yRot = part.yRot;
         zRot = part.zRot;
 
-        ModelPartAccess mixinPart = (ModelPartAccess)(Object) part;
-
-        scaleX = mixinPart.getXScale();
-        scaleY = mixinPart.getYScale();
-        scaleZ = mixinPart.getZScale();
+        // Fabric port: vanilla ModelPart exposes its render scale directly (replaces ModelPartAccess mixin)
+        scaleX = part.xScale;
+        scaleY = part.yScale;
+        scaleZ = part.zScale;
 
         visible = part.visible;
 
@@ -107,7 +105,10 @@ public class ModelPartProxy
         part.yRot = yRot;
         part.zRot = zRot;
 
-        ((ModelPartAccess)(Object) part).setRenderScale(scaleX, scaleY, scaleZ);
+        // Fabric port: vanilla ModelPart exposes its render scale directly (replaces ModelPartAccess mixin)
+        part.xScale = scaleX;
+        part.yScale = scaleY;
+        part.zScale = scaleZ;
 
         part.visible = visible;
 

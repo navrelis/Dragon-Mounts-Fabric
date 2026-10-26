@@ -1,6 +1,5 @@
 package com.github.kay9.dragonmounts.client;
 
-import com.github.kay9.dragonmounts.accessors.ModelPartAccess;
 import com.github.kay9.dragonmounts.dragon.TameableDragon;
 import com.github.kay9.dragonmounts.util.CircularBuffer;
 import com.github.kay9.dragonmounts.util.LerpedFloat;
@@ -303,7 +302,10 @@ public class DragonAnimator
 
             // update scale
             float v = Mth.clampedLerp(1.6f, 1, vertMulti);
-            ((ModelPartAccess) (Object) model.neck).setRenderScale(v, v, 0.6f);
+            // Fabric port: vanilla ModelPart exposes its render scale directly (replaces ModelPartAccess mixin)
+            model.neck.xScale = v;
+            model.neck.yScale = v;
+            model.neck.zScale = 0.6f;
 
             // hide the first and every second scale
             model.neckScale.visible = i % 2 != 0 || i == 0;
@@ -312,7 +314,7 @@ public class DragonAnimator
             model.neckProxy[i].update();
 
             // move next proxy behind the current one
-            neckSize = DragonModel.NECK_SIZE * ((ModelPartAccess) (Object) model.neck).getZScale() - 1.4f;
+            neckSize = DragonModel.NECK_SIZE * model.neck.zScale - 1.4f;
             model.neck.x -= Mth.sin(model.neck.yRot) * Mth.cos(model.neck.xRot) * neckSize;
             model.neck.y += Mth.sin(model.neck.xRot) * neckSize;
             model.neck.z -= Mth.cos(model.neck.yRot) * Mth.cos(model.neck.xRot) * neckSize;
@@ -473,13 +475,14 @@ public class DragonAnimator
 
             // update scale
             float neckScale = Mth.clampedLerp(1.5f, 0.3f, vertMulti);
-            ((ModelPartAccess) (Object) model.tail).setRenderScale(neckScale, neckScale, neckScale);
+            // Fabric port: vanilla ModelPart exposes its render scale directly (replaces ModelPartAccess mixin)
+            model.tail.xScale = model.tail.yScale = model.tail.zScale = neckScale;
 
             // update proxy
             model.tailProxy[i].update();
 
             // move next proxy behind the current one
-            float tailSize = DragonModel.TAIL_SIZE * ((ModelPartAccess) (Object) model.tail).getZScale() - 0.7f;
+            float tailSize = DragonModel.TAIL_SIZE * model.tail.zScale - 0.7f;
             model.tail.y += Mth.sin(model.tail.xRot) * tailSize;
             model.tail.z -= Mth.cos(model.tail.yRot) * Mth.cos(model.tail.xRot) * tailSize;
             model.tail.x -= Mth.sin(model.tail.yRot) * Mth.cos(model.tail.xRot) * tailSize;
